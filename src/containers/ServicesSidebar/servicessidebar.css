@@ -1,0 +1,107 @@
+.service-sidebar {
+    padding: 16px;
+    box-sizing: border-box;
+}
+
+.cont0A {
+    display: flex;
+    justify-content: space-between;
+}
+
+#message {
+    width: 100%;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 15px;
+}
+
+.cotbtnA {
+    /* position: fixed; */
+    display: flex;
+    justify-content: center;
+
+}
+
+.cotbtnA button {
+    padding: 6px 15px 6px 15px;
+    border: none;
+    color: white;
+    background:
+        rgba(43, 42, 41, 1);
+    border-radius: 3px;
+}
+
+.duckED {
+    margin-bottom: 4px;
+}
+
+.duckED label {
+    margin-left: 10px;
+}
+
+
+
+@media (min-width:360px) and (max-width:768px) {
+    .contmainA {
+        width: 100%;
+        font-size: 12px;
+        /* padding: 10px; */
+        /* height: 50vh; */
+        top: 4px;
+        left: 0%;
+        height: auto;
+        padding: 5px;
+    }
+
+    #message {
+        width: 100%;
+        border-radius: 5px;
+        padding: 10px;
+        margin-bottom: 15px;
+        margin-top: 10px;
+    }
+
+    /* .contmainA{
+        position: fixed;
+        width: 100%;
+        /* width: 40%; */
+    /* font-size: 12px;
+        padding: 10px;
+        background: white; *
+    
+       
+    } */
+
+
+
+
+}
+
+
+@media (min-width:200px) and (max-width:358px) {
+
+    .contmainA {
+        width: 100%;
+        font-size: 12px;
+        padding: 10px;
+        /* height: 50vh; */
+    }
+
+    #message {
+        width: 100%;
+        border-radius: 5px;
+        padding: 10px;
+        margin-bottom: 15px;
+        margin-top: 10px;
+    }
+
+    .cont0A {
+        display: flex;
+        /* justify-content: space-between; */
+        flex-direction: column;
+    }
+
+    .cont2A {
+        margin-top: 15px;
+    }
+}

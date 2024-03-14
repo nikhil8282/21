@@ -1,0 +1,324 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+.know{
+    /* width: 100%; */
+    margin-top: 8%;
+    margin-left: 73%;
+    margin-bottom: 10px;
+}
+.know-p1{
+    color: rgba(254, 198, 63, 1);
+    font: 'Roboto';
+    font-weight: 400;
+    font-size: 12px;
+}
+.know-p2{
+    color: rgba(43, 42, 41, 1);
+    font-size: 30px;
+    font-weight: 700;
+    font: 'Roboto';
+}
+.know-mid{
+    display: flex;
+    width: 100%;
+    /* margin:auto; */
+    /* gap: 14%; */
+    padding-bottom: 30px;
+}
+.know-mid-div-1{
+    width: 50%;
+    /* margin-left: 10%; */
+}
+.know-mid-resp{
+    width: 50%;
+    margin-right: 10%;
+}
+.know-about{
+    margin-left: 16%;
+    width: 370px;
+    height: 430px;
+}
+.know-circle{
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    top: 305%;
+    left: 17%;
+}
+.know-about2{
+    position: relative;
+    top: 63%;
+    left: 65%;
+    width: 250px;
+    height: 150px;
+}
+.blur{
+    position: absolute;
+    width: 50px;
+    height: 200px;
+    left: 30.5%;
+    top: 275%;
+}
+.know-paras{
+    color:  rgba(43, 42, 41, 1);
+    font: 'Roboto';
+    font-weight: 400;
+    font-size: 18px;
+}
+.know-mid-p{
+    color: rgba(24, 25, 28, 1);
+    font: 'Roboto';
+    font-weight: 700;
+    font-size: 18px;
+    margin: 20px 0px 15px 0px;
+}
+.parrow-flex{
+    display: flex;
+    gap: 0.4rem;
+    margin-top: 2%;
+}
+.parrow{
+    margin-top: 0.8%;   
+    width: 20px;
+    height: 20px;
+}
+@media only screen and (max-width: 320px) {
+    .know{
+        width: 50%;
+        margin-top: 2%;
+        margin-left: 22%;
+    }
+    .know-p1{
+        font-size: 8px;
+    }
+    .know-p2{
+        font-size: 20px;
+    }
+    .know-mid{
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+    .know-mid-resp{
+        width: 100%;
+        margin-top: 50%;
+        justify-content: center;
+        text-align: center;
+        /* margin-left: -5%; */
+    }
+    .know-about{
+        position:absolute;
+        left: 13%;
+        width: 150px;
+        height: 130px;
+    }
+    .know-circle{
+        position: relative;
+        left: 50%;
+        width: 60px;
+        height: 60px;
+        /* top: 285%; */
+    }
+    .know-about2{
+        position: relative;
+        top: 1%;
+        left: 10%;
+        width: 110px;
+        height: 80px;
+    }
+    .blur{
+        position: absolute;
+        width: 30px;
+        height: 100px;
+    }
+    .know-foot{
+        margin-top: 6%;
+        height: 40px;
+        width: 100%;
+    }
+    .know-paras{
+        width: 100%;
+        text-align: start;
+        font-size: 12px;
+    }
+    .know-mid-p{
+        font-size: 12px;
+    }
+    .parrow-flex{
+        display: flex;
+        gap: 0.4rem ;
+        margin-top: 2%;
+    }
+    .parrow{
+        margin-top: 0.8%;   
+        width: 17px;
+        height: 17px;
+    }
+}
+@media (min-width:320px) and (max-width: 412px) {
+    .know{
+        width: 55%;
+        margin-top: 1%;
+        /* justify-content: center; */
+        /* text-align: center; */
+        margin-left: 22%;
+    }
+    .know-p1{
+        font-size: 9px;
+    }
+    .know-p2{
+        font-size: 22px;
+    }
+    .know-mid{
+        display: flex;
+        flex-direction: column;
+        width: 86%;
+    }
+    .know-mid-resp{
+        width: 100%;
+        margin-top: 51%;
+        margin-left: 7%;
+    }
+    .know-about{
+        position:absolute;
+        left: 13%;
+        width: 160px;
+        height: 160px;
+    }
+    .know-paras{
+        /* width: 88%; */
+        /* text-align: start; */
+        font-size: 12px;
+    }
+    .know-mid-p{
+        font-size: 12px;
+    }
+    .parrow-flex{
+        display: flex;
+        gap: 0.4rem ;
+        margin-top: 2%;
+    }
+    .parrow{
+        margin-top: 0.8%;   
+        width: 17px;
+        height: 17px;
+    }
+}
+@media (min-width:413px) and (max-width: 576px) {
+    .know{
+        width: 50%;
+        margin-top: 8%;
+        margin-left: 60%;
+    }
+    .know-p1{
+        font-size: 10px;
+    }
+    .know-p2{
+        font-size: 25px;
+    }
+    .know-mid{
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+    .know-mid-div-1{
+        width: 50%;
+    }
+    .know-mid-resp{
+        margin-top: 50%;
+        width: 95%;
+        justify-content: center;
+        margin-left: 5%;
+    }
+    .know-about{
+        position:absolute;
+        left: 13%;
+        width: 180px;
+        height: 200px;
+    }
+    .know-paras{
+        width: 96%;
+        text-align: start;
+        font-size: 16px;
+    }
+    .know-mid-p{
+        font-size: 12px;
+    }
+    .parrow-flex{
+        display: flex;
+        gap: 0.4rem ;
+        margin-top: 2%;
+    }
+    .parrow{
+        margin-top: 0.8%;   
+        width: 17px;
+        height: 17px;
+    }
+}
+@media (min-width:577px) and (max-width: 768px) {
+    .know{
+        margin-top: 8%;
+        margin-left: 60%;
+    }
+    .know-p1{
+        font-size: 14px;
+    }
+    .know-p2{
+        font-size: 30px;
+    }
+    .know-mid{
+        display: flex;
+        width: 100%;
+        padding-top: 1%;
+        gap: 12%;
+    }
+    .know-about{
+        position:absolute;
+        left: -10%;
+        width: 260px;
+        height: 320px;
+    }
+    .know-paras{
+        font-size: 14px;
+    }
+    .know-mid-p{
+        font-size: 18px;
+        margin: 20px 0px 15px 0px;
+    }
+    .parrow-flex{
+        display: flex;
+        gap: 0.4rem;
+        margin-top: 2%;
+    }
+    .parrow{
+        margin-top: 0.8%;   
+        width: 20px;
+        height: 20px;
+    }   
+}
+@media (min-width:769px) and (max-width: 1024px) {
+    .know-mid{
+        display: flex;
+        width: 100%;
+        /* margin:auto; */
+        gap: 5%;
+        padding-bottom: 30px;
+    }
+    .know-mid-div-1{
+        width: 50%;
+        /* margin-left: 10%; */
+    }
+    .know-mid-resp{
+        width: 50%;
+        margin-right: 10%;
+    }
+    .know-about{
+        margin-left: 16%;
+        width: 300px;
+        height: 380px;
+    }
+   
+}

@@ -1,0 +1,95 @@
+export const REGISTER_REQUEST='REGISTER_REQUEST'
+export const REGISTER_SUCCESS='REGISTER_SUCCESS'
+export const REGISTER_FAILURE='REGISTER-FAILURE'
+
+export const LOGIN_REQUEST = 'LOGIN_REQUEST';
+export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
+export const LOGIN_FAILURE = 'LOGIN_FAILURE';
+
+export const EDIT_REQUEST = 'EDIT_REQUEST';
+export const EDIT_SUCCESS = 'EDIT_SUCCESS';
+export const EDIT_FAILURE = 'EDIT_FAILURE';
+
+export const GET_USER_DATA_REQUEST = 'GET_USER_DATA_REQUEST';
+export const GET_USER_DATA_SUCCESS = 'GET_USER_DATA_SUCCESS';
+export const GET_USER_DATA_FAILURE = 'GET_USER_DATA_FAILURE';
+
+export const LOGOUT_USER = 'LOGOUT_USER';
+
+// 
+
+export const LOGOUT = 'LOGOUT';
+export const CLEAR_ERRORS = 'CLEAR_ERRORS';
+export const LOGOUT_FAIL = 'LOGOUT_FAIL';
+
+
+
+
+
+
+
+export const CONTACT_US = 'CONTACT_US';
+export const CONTRACTOR_REGISTRATION = 'CONTRACTOR_REGISTRATION';
+export const CONTRACTOR_OR_SUPPLIRE_LOGIN = 'CONTRACTOR_OR_SUPPLIRE_LOGIN';
+export const EDIT = 'EDIT';
+
+export const LIKE = 'LIKE';
+export const GET_LOGGED_USER_DATA = 'GET_LOGGED_USER_DATA';
+export const SEARCH = 'SEARCH';
+export const FETCH_CONTRACTOR_DATA = 'FETCH_CONTRACTOR_DATA';
+
+export const CONTRACTOR_LOGOUT = 'CONTRACTOR_LOGOUT';
+export const GET_IN_TOUCH_WITH_US = 'GET_IN_TOUCH_WITH_US';
+export const SAVE_AND_SEND_MAIL = 'SAVE_AND_SEND_MAIL';
+export const USER_REGISTRATION = 'USER_REGISTRATION';
+export const USER_LOGIN = 'USER_LOGIN';
+export const CHANGE_PASSWORD = 'CHANGE_PASSWORD';
+// export const LOGOUT = 'LOGOUT';
+
+
+
+
+export const SUPPLIER = 'SUPPLIER';
+export const SUPPLIER_LOGIN = 'SUPPLIER_LOGIN';
+export const EDIT_SUPPLIER = 'EDIT_SUPPLIER';
+export const USER_PROFILE = 'USER_PROFILE';
+
+
+
+
+// export const SEND_MAIL = 'SEND_MAIL';
+
+// 
+
+export const CONTACT_REQUEST = 'CONTACT_REQUEST';
+export const CONTACT_SUCCESS = 'CONTACT_SUCCESS';
+export const CONTACT_FAILURE = 'CONTACT_FAILURE';
+export const SET_CONTACT = "SET_CONTACT"
+
+export const GET_IN_TOUCH_REQUEST = 'GET_IN_TOUCH_REQUEST';
+export const GET_IN_TOUCH_SUCCESS = 'GET_IN_TOUCH_SUCCESS';
+export const GET_IN_TOUCH_FAILURE = 'GET_IN_TOUCH_FAILURE';
+export const SET_GET_IN_TOUCH = "SET_GET_IN_TOUCH"
+
+export const FETCH_REQUEST = "FETCH_REQUEST";
+export const FETCH_SUCCESS = "FETCH_SUCCESS";
+export const FETCH_FAILURE = "FETCH_FAILURE";
+export const SET_FETCH = "SET_FETCH";
+
+export const LIKE_REQUEST = "LIKE_REQUEST";
+export const LIKE_SUCCESS = "LIKE_SUCCESS";
+export const LIKE_FAILURE = "LIKE_FAILURE";
+export const SET_LIKE = "SET_LIKE";
+
+export const SEARCH_REQUEST = "SEARCH_REQUEST";
+export const SEARCH_SUCCESS = "SEARCH_SUCCESS";
+export const SEARCH_FAILURE = "SEARCH_FAILURE";
+export const SET_SEARCH = "SET_SEARCH";
+
+// 
+export const SIGN_UP_USER = "signupuser";
+export const SIGN_IN_USER = "signinuser";
+
+export const CHANGE_PASSWORD_USER = "CHANGE_PASSWORD_USER";
+
+export const LOGGED_USER = "LOGGED_USER";

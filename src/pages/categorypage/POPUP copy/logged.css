@@ -1,0 +1,106 @@
+*{
+    margin:0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+.lwrapper{
+    position: fixed;
+    background-color:rgba(189,189,189,189,.6);
+
+top:0;
+left:0;
+right:0;
+bottom:0;
+
+}
+.Lmain{
+    position: fixed;
+    border:1px solid gray;
+    box-shadow: 3px 2px 9px gray;
+    padding: 20px;
+    border-radius: 2px;
+    left: 30%;
+    top: 35%;
+
+}
+
+
+.pro .material-symbols-outlined{
+    position: relative;
+    top:3px;
+    margin-right: 10px;
+    
+}
+
+.pro{
+    display:flex ;
+
+    margin-left: 6px;
+}
+
+.sme{
+    font-size: 11px;
+}
+
+.uright{
+    display: flex;
+    justify-content: space-between;
+    background: rgba(255, 247, 228, 1);
+    margin-bottom: 20px;
+    margin-top: 20px;
+
+}
+.uright p{
+    font-size: 13px;
+    padding: 5px 20px 5px 20px;
+}
+.editnum{
+    display: flex;
+    justify-content: space-between;
+}
+
+.numbtn2,.edit0{
+    padding: 0px 10px 0px 10px;
+    border: none;
+}
+
+.numbtn2{
+    background: 
+    rgba(43, 42, 41, 1)
+    ;
+    color: white;
+    border-radius: 3px;
+    margin-right: 10px;
+}
+.tct{
+    position: relative;
+    top:-7px
+} 
+
+.edit0{
+    margin-left: 10px;
+    background: white;
+}
+
+
+
+@media (min-width:300px) and (max-width:768px){
+    .Lmain{
+        position: fixed;
+        border:1px solid gray;
+        box-shadow: 3px 2px 9px gray;
+        padding: 20px;
+        border-radius: 2px;
+        left: 10%;
+        top: 10%;
+    
+    }
+
+
+
+
+}
+
+
+

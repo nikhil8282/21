@@ -1,0 +1,407 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+.background-container {
+    /* background-image: url('./banner images/cement 1.png'); */
+    background-image: url('./banner images/Frame 29.png');
+    position: relative;
+    background-size: cover;
+    width: 100%;
+}
+#banner{
+    display: flex;
+    gap: 15%;
+    margin-bottom: 9%;
+}
+.banner-div-1{
+    margin-left: 14%;
+    margin-top: 13%;
+}
+.banner-p-1{
+    color: rgba(255, 246, 246, 1);
+    font: 'Roboto';
+    font-weight: 700;
+    font-size: 42px;
+}
+
+.banner-p-2{
+    color: rgba(254, 204, 0, 1);
+    font: 'Roboto';
+    font-weight: 700;
+    font-size: 42px;
+    margin-bottom: 20px;
+}
+.banner-p-3{
+    color: rgba(255, 246, 246, 1);
+    font: 'Roboto';
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 23px;
+}
+.banner-bttn{
+    color: rgba(43, 42, 41, 1);
+    background-color: rgba(254, 204, 0, 1);
+    font: 'Roboto';
+    font-weight: 400;
+    font-size: 16px;
+    padding: 6px;
+    box-shadow: 2px 2px grey;
+    margin-top: 14%;
+    margin-bottom: 26%;
+}
+.lower-container{
+    display: flex;
+    position: absolute;
+    top: 95%;
+    left: 26%;
+    background-color: rgba(255, 255, 255, 1);
+    width: 45%;
+    border: 2px solid rgba(255, 255, 255, 1);
+    box-shadow:1px 2px rgba(236, 236, 236, 1);
+    border-radius: 36px;
+    gap: 20%;
+    padding: 22px;
+}
+.lw-2{
+    display: flex;
+    gap: 1rem;
+}
+.your-city{
+    color: rgba(43, 42, 41, 1);
+    font: 'Roboto';
+    font-weight: 400;
+    font-size: 16px;
+}
+.ex-noida{
+    color: rgba(186, 186, 186, 1);
+    font: 'Roboto';
+    font-weight: 400;
+    font-size: 16px;
+}
+.banner-services{
+    padding: 3px;
+    border: none;
+}
+.banner-search{
+    position: absolute;
+    top: 18%;
+    right: 5%;
+    width: 50px;
+    height: 46px;
+}
+@media screen and (max-width: 320px) {
+    .background-container {
+        background-image: url('./banner images/mobile view.png');
+        /* background-image: url('./banner images/cement 1.png'); */
+        position: relative;
+        background-size: cover;
+        width: 100%;
+        height: 10%;
+    }
+    #banner{
+        display: flex;
+        gap: 10%;
+        margin-bottom: 5%;
+    }
+    .banner-div-1{
+        margin-left: 5%;
+        margin-top: 15%;
+    }
+    .banner-p-1{
+        color: rgba(255, 246, 246, 1);
+        font: 'Roboto';
+        font-weight: 700;
+        font-size: 15px;
+    }
+    .banner-layer{
+        position: absolute;
+        top: 20%;
+        left: 23%;
+        width: 90px;
+        height:35px ;
+    }
+    .banner-p-2{
+        color: rgba(254, 204, 0, 1);
+        font: 'Roboto';
+        font-weight: 700;
+        font-size: 16px;
+        margin-bottom: 10px;
+    }
+    .banner-p-3{
+        color: rgba(255, 246, 246, 1);
+        font: 'Roboto';
+        font-weight: 400;
+        font-size: 8px;
+        width: 80%;
+        line-height: 10px;
+    }
+    .banner-bttn{
+        color: rgba(43, 42, 41, 1);
+        background-color: rgba(254, 204, 0, 1);
+        font: 'Roboto';
+        font-weight: 400;
+        font-size: 8px;
+        padding: 4px;
+        /* box-shadow: 1px 1px grey; */
+        margin-top: 12%;
+        margin-bottom: 20%;
+    }
+    .rectangle-1{
+        position: absolute;
+        top: 13%;
+        right: 16%;
+        width: 45px;
+        height: 50px;
+    }
+    .rectangle-2{
+        position: absolute;
+        width: 50px;
+        height: 60px;
+        top: 33%;
+        right:7% ;
+    }
+    .lower-container{
+        display: flex;
+        position: absolute;
+        top: 95%;
+        left: 11%;
+        background-color: rgba(255, 255, 255, 1);
+        width: 75%;
+        border: 2px solid rgba(255, 255, 255, 1);
+        box-shadow:1px 2px rgba(236, 236, 236, 1);
+        border-radius: 36px;
+        gap: 12%;
+        padding: 5px;
+    }
+    .lw-2{
+        gap: 0.4rem;
+    }
+    .your-city{
+        color: rgba(43, 42, 41, 1);
+        font: 'Roboto';
+        font-weight: 400;
+        font-size: 8px;
+    }
+    .ex-noida{
+        color: rgba(186, 186, 186, 1);
+        font: 'Roboto';
+        font-weight: 400;
+        font-size: 8px;
+    }
+    .banner-services{
+    /* padding: 2px; */
+    }
+    .banner-search{
+        position: absolute;
+        top: 16%;
+        right: 5%;
+        width: 22px;
+        height: 20px;
+    }   
+}
+@media (min-width: 321px) and (max-width: 412px){
+    .background-container {
+        background-image: url('./banner images/mobile view.png');
+        /* background-image: url('./banner images/cement 1.png'); */
+        position: relative;
+        background-size: cover;
+        width: 100%;
+        /* height: 100%; */
+        height: 100%;
+        box-sizing: border-box;
+    }
+    #banner{
+        display: flex;
+        gap: 10%;
+        margin-bottom: 5%;
+    }
+    .banner-div-1{
+        margin-left: 5%;
+        margin-top: 20%;
+    }
+    .banner-p-1{
+        font-size: 25px;
+    }
+    .banner-layer{
+        position: absolute;
+        top: 20%;
+        left: 23%;
+        width: 90px;
+        height:35px ;
+    }
+    .banner-p-2{
+        font-size: 30px;
+        margin-bottom: 10px;
+    }
+    .banner-p-3{
+        font-size: 16px;
+        width: 80%;
+        line-height: 17px;
+    }
+    .banner-bttn{
+        font-size: 12px;
+        padding: 4px;
+        box-shadow: 2px 2px grey;
+        margin-top: 12%;
+        margin-bottom: 20%;
+    }
+    .lower-container{
+        display: flex;
+        position: absolute;
+        top: 95%;
+        left: 11%;
+        background-color: rgba(255, 255, 255, 1);
+        width: 75%;
+        border: 2px solid rgba(255, 255, 255, 1);
+        box-shadow:1px 2px rgba(236, 236, 236, 1);
+        border-radius: 36px;
+        gap: 10%;
+        padding: 5px;
+    }
+    .lw-2{
+        margin-top: 7px;
+        margin-left: 10px;
+        gap: 0.4rem;
+    }
+    .your-city{
+        color: rgba(43, 42, 41, 1);
+        font: 'Roboto';
+        font-weight: 400;
+        font-size: 8px;
+    }
+    .ex-noida{
+        font-size: 8px;
+    }
+    .banner-services{
+        /* align-items: center; */
+    }
+    .banner-search{
+        position: absolute;
+        top: 22%;
+        right: 5%;
+        width: 22px;
+        height: 20px;
+    }   
+}
+@media (min-width: 413px) and (max-width: 576px){
+    .background-container {
+        background-image: url('./banner images/Frame\ 29.png');
+        /* background-image: url('./banner images/cement 1.png'); */
+        position: relative;
+        background-size: cover;
+        width: 110%;
+        /* height: 100%; */
+        /* height: 100%; */
+        /* box-sizing: border-box; */
+    }
+    #banner{
+        display: flex;
+        gap: 10%;
+        margin-bottom: 5%;
+    }
+    .banner-div-1{
+        margin-left: 10%;
+        margin-top: 16%;
+    }
+    .banner-p-1{
+        font-size: 25px;
+    }
+    .banner-p-2{
+        font-size: 30px;
+        margin-bottom: 10px;
+    }
+    .banner-p-3{
+        font-size: 16px;
+        width: 100%;
+        line-height: 17px;
+    }
+    .banner-bttn{
+        font-size: 12px;
+        padding: 4px;
+        box-shadow: 2px 2px grey;
+        margin-top: 12%;
+        margin-bottom: 20%;
+    }
+    .lower-container{
+        display: flex;
+        position: absolute;
+        top: 95%;
+        left: 15%;
+        background-color: rgba(255, 255, 255, 1);
+        width: 70%;
+        border: 2px solid rgba(255, 255, 255, 1);
+        box-shadow:1px 2px rgba(236, 236, 236, 1);
+        border-radius: 36px;
+        gap: 10%;
+        padding: 12px;
+    }
+    .lw-2{
+        margin-top: 7px;
+        margin-left: 10px;
+        gap: 0.4rem;
+    }
+    .your-city{
+        color: rgba(43, 42, 41, 1);
+        font: 'Roboto';
+        font-weight: 400;
+        font-size: 14px;
+    }
+    .ex-noida{
+        font-size: 14px;
+    }
+    .banner-services{
+        /* align-items: center; */
+    }
+    .banner-search{
+        position: absolute;
+        top: 22%;
+        right: 5%;
+        width: 22px;
+        height: 20px;
+    }   
+}
+@media (min-width: 577px) and (max-width: 810px){
+    .background-container{
+        width: 102%;
+    }
+    .lower-container{
+        width: 60%;
+        gap: 6%;
+    }
+}
+@media (min-width: 811px) and (max-width: 886px){
+    .lower-container{
+        width: 60%;
+        
+    }
+    .lw-2{
+        display: flex;
+        gap: 1rem;
+    }
+    .your-city{
+        color: rgba(43, 42, 41, 1);
+        font: 'Roboto';
+        font-weight: 400;
+        font-size: 16px;
+    }
+    .ex-noida{
+        color: rgba(186, 186, 186, 1);
+        font: 'Roboto';
+        font-weight: 400;
+        font-size: 16px;
+    }
+    .banner-services{
+        padding: 3px;
+        border: none;
+    }
+    .banner-search{
+        position: absolute;
+        top: 18%;
+        right: 5%;
+        width: 50px;
+        height: 46px;
+    }   
+}

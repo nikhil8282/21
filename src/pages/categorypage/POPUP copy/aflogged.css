@@ -1,0 +1,102 @@
+*{
+    margin:0;
+    padding: 0;
+}
+
+.afwrapper{
+    position: fixed;
+    background-color:rgba(189,189,189,189,.6);
+
+top:0;
+left:0;
+right:0;
+bottom:0;
+}
+
+
+
+
+.Lmain5{
+    position: fixed;
+    border:1px solid gray;
+    box-shadow: 3px 2px 9px gray;
+    padding: 20px;
+    border-radius: 2px;
+    left: 15%;
+    top:30%
+}
+
+
+.pro6 .material-symbols-outlined{
+    position: relative;
+    top:3px;
+    margin-right: 10px;
+    
+}
+
+.pro6{
+    display:flex ;
+
+    margin-left: 6px;
+}
+
+.smer{
+    font-size: 11px;
+}
+
+.uright8{
+    display: flex;
+    justify-content: space-between;
+    background: rgba(255, 247, 228, 1);
+    margin-bottom: 20px;
+    margin-top: 20px;
+
+}
+.uright8 p{
+    font-size: 13px;
+    padding: 5px 20px 5px 20px;
+}
+.editnum9{
+    display: flex;
+    justify-content: space-between;
+}
+
+.numbtn210,.edit011{
+    padding: 0px 10px 0px 10px;
+    border: none;
+}
+
+.numbtn210{
+    background: 
+    rgba(43, 42, 41, 1)
+    ;
+    color: white;
+    border-radius: 3px;
+    margin-right: 10px;
+}
+.tmt{
+    position: relative;
+    top:-7px
+} 
+
+.edit011{
+    margin-left: 10px;
+    background: white;
+}
+
+.logout01{
+
+    /* position: fixed; */
+    border: none;
+    padding: 10px;
+    border-radius: 3px;
+    background:
+    rgba(43, 42, 41, 1) ;
+    color: white;
+    width: 30%;
+    margin: 20px 0px 20px 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}

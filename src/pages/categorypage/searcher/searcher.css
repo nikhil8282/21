@@ -1,0 +1,136 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+
+.row1{
+    margin-top: 10px;
+    /* display: flex; */
+    /* justify-content: center; */
+    /* margin-right: 50%; */
+    margin-left: 15%;
+
+}
+
+#input1-box{
+    padding: 10px;
+    width: 30%;
+    border-radius: 20px 20px 20px 20px;
+    outline: none;
+    /* border-right: none; */
+    
+}
+.row1 .button {
+  padding: 10px;
+  border-left: none;
+  border-radius: 0px 20px 20px 0px;
+  background: white;
+  border: 1px solid black;
+  outline: none;
+}
+
+
+
+/* ------------------------------search  css End-------------------------------------------------------------- */
+
+
+  /* @media (min-width: 761px) and (max-width: 1263px) {
+    .doubleCard {
+      /* display: flex; */
+      /* flex-direction: column;
+    }
+  
+    .construction {
+      width: 100%;
+              margin: 5px 20px 0px 10px;
+              padding: 0px;
+    }
+  
+   
+  
+    .bannert {
+      position: absolute;
+      top: 10%;
+      left: 44%;
+      padding: 10px;
+    }
+   */
+   
+   
+   
+  
+  
+  
+     
+  
+  
+  
+  
+  
+  
+  
+  /* @media (min-width: 758px) and (max-width: 824px) {
+    
+  
+    
+  
+    
+  
+    
+  } */
+  
+  /* @media (min-width: 459px) and (max-width: 756px){
+   
+  
+    
+  } */
+  
+  /* @media (max-width: 457px) { */
+   
+    /* .construction {
+      width: 100%;
+      margin: 5px 20px 0px 10px;
+      padding: 0px;
+  
+    }
+  
+    .numbtn0,.numbtn{
+      margin: 0;
+      font-size: small;
+      padding: 5px;
+    }
+    .numbtn{
+      margin-right: 3px;
+    }
+  
+  
+  
+    
+  
+    .bannert {
+      position: absolute;
+      top: 12%;
+      left: 30%;
+      padding: 10px;
+    }
+  
+  
+    .doubleCard {
+      display: flex;
+      flex-direction: column;
+    }
+  
+  
+  
+    .onimage {
+      display: flex;
+      flex-direction: column;
+    }
+    .btn1,
+    .btn2 {
+      margin-top: 10px;
+    }
+  
+    
+  } */

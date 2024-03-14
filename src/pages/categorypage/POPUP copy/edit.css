@@ -1,0 +1,129 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.ewrapper{
+    position: fixed;
+    background-color:rgba(189,189,189,189,.6);
+
+top:0;
+left:0;
+right:0;
+bottom:0;
+}
+
+.main002{
+    position: fixed;
+    left: 55%;
+    top: 13%;
+
+  
+
+    /* top:0% */
+}
+
+
+.Emain{
+    border: 1px solid gray;
+    padding: 20px;
+    position: fixed;
+    box-shadow: 3px 2px 9px gray;
+    border-radius: 4px;
+    left: 55%;
+    top:1 3%;
+
+  
+   
+}
+.e1,.e2,.e3,.e4,.e5,.e6{
+    padding: 10px;
+    border-radius: 20px;
+    outline: none;
+    border: 1px solid rgba(89, 89, 89, 1);
+    box-sizing: border-box;
+    margin-bottom: 20px;
+}
+
+.e2,.e3{
+    width: 100%;
+}
+
+.e3 ::placeholder{
+    font-size: 12px;
+    /* padding: 10px  35px 10px 20px;
+} */
+}
+
+
+
+
+.e1,.e4,.e5,.e6{
+    width: 100%;
+
+}
+
+.ps ,.cs{
+    display: flex;
+    gap: 10px;
+}
+
+.esave{
+    background: 
+    rgba(254, 204, 0, 1);
+    border: none;
+    width: 100%;
+    padding: 10px;
+    border-radius: 20px;
+    box-sizing: border-box;
+    margin-bottom: 20px;
+
+}
+
+.logout0{
+
+    /* position: fixed; */
+    border: none;
+    padding: 10px;
+    border-radius: 3px;
+    background:
+    rgba(43, 42, 41, 1) ;
+    color: white;
+    width: 30%;
+    margin-bottom: 20px;
+
+}
+
+
+
+@media (min-width:300px) and (max-width:768px){
+
+
+    .main002{
+        position: fixed;
+        left: 0%;
+        top: 30%;
+    
+      
+    
+        /* top:0% */
+    }
+    
+    
+    .Emain{
+        border: 1px solid gray;
+        padding: 20px;
+        position: fixed;
+        box-shadow: 3px 2px 9px gray;
+        border-radius: 4px;
+        left: 1.5%;
+        top:30%;
+    
+      
+       
+    }
+
+
+
+}
+
