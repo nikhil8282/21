@@ -8,8 +8,8 @@ import Signup from './pages/contactpage/signup/Signup.jsx';
 import Login from './pages/contactpage/login/Login.jsx';
 import Supplier from './pages/contactpage/supplier/Supplier.jsx'
 // import Registration from './components/contact/Registration.jsx'
-import Upcategary from './pages/categorypage/upcategory/Upcategary.jsx'
-import ViewDetails from './pages/categorypage/viewdetails/ViewDetails.jsx';
+import Category from './pages/Category/Category.jsx'
+import ViewDetails from './pages/viewdetails/ViewDetails.jsx';
 import Searcher from './pages/categorypage/searcher/Searcher.jsx';
 import PrivacyPolicy from './pages/privacy/PrivacyPolicy.jsx'
 import Terms from './pages/terms/Terms.jsx'
@@ -44,7 +44,7 @@ function App() {
 
           <Route path="/" element={<Home />} />
           <Route path="/suppliers" element={<Suppliers />} />
-          <Route path="/category" element={<Upcategary />} />
+          <Route path="/category" element={<Category />} />
           <Route path="/viewdetails/:id" element={<ViewDetails />} />
           <Route path="/searcher" element={<Searcher />} />
           <Route path="/aflogged" element={<AfLogged />} />

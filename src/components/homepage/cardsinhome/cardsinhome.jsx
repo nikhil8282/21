@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import './cardsinhome.css'
 // import "./upcategory.css"
-import Send from '../../../pages/categorypage/Popup/Send'
+// import Send from '../../../pages/categorypage/Popup/Send'
 // import ViewDetails from './ViewDetails'
 import { useNavigate } from 'react-router-dom'
 // import axios from 'axios'
@@ -13,7 +13,7 @@ import { useSelector } from 'react-redux';
 function Cardsinhome() {
     const dispatch = useDispatch('')
     useEffect(() => {
-        // dispatch(setFetch());
+        dispatch(setFetch());
     }, [dispatch]);
     const { data } = useSelector(state => state.fetchReducer);
     const handleFetch = (id) => {
@@ -72,7 +72,7 @@ function Cardsinhome() {
                                         <button type='submit' onClick={Mymodel} className='numbtn'> Send Enquiry</button>
                                         <button type='submit' onClick={() => handleRedirect(item)} className='numbtn0'>View Details</button>
                                         <i className="fa-regular fa-heart" onChange={(e) => setLiked(e.target.value)} onSubmit={handleSubmit}></i>
-                                        {payment && <Send band={band} />}
+                                        {/* {payment && <Send band={band} />} */}
                                     </div>
                                 </div>
                             </div>

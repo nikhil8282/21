@@ -1,20 +1,22 @@
 import React, { useState } from 'react'
-import "./upcategory.css"
-import Send from '../../../pages/categorypage/Popup/Send'
+import "./category.css"
 // import ViewDetails from './ViewDetails'
 import { useNavigate } from 'react-router-dom'
-import Navbar from '../../../components/homepage/Navbar/navbar'
-import Footer from '../../../components/homepage/footer/footer'
-// import axios from 'axios'
+import Navbar from '../../components/homepage/Navbar/navbar'
+import Footer from '../../components/homepage/footer/footer'
 import { useEffect } from 'react'
 import { useDispatch } from 'react-redux';
-import { setLike } from '../../../redux/actions/likeAction'
-import { setFetch } from '../../../redux/actions/fetchcardsAction'
+import { setLike } from '../../redux/actions/likeAction'
+import { setFetch } from '../../redux/actions/fetchcardsAction'
 import { useSelector } from 'react-redux';
-import { getAllContractor } from '../../../redux/actions/contractorAction'
+import { getAllContractor } from '../../redux/actions/contractorAction'
+import SendEnquiry from '../../containers/SendEnquiry/SendEnquiry';
+import { PulseLoader } from 'react-spinners'
 // import fetchReducer from '../../../redux/reducers/fetchcardReducer'
 
-function Upcategary() {
+function Category() {
+
+    const [sendEnquiryOpen, setSendEnquiryOpen] = useState(false);
 
     const dispatch = useDispatch();
     const { loading, error, success, contractor } = useSelector(state => state.contractorReducer);
@@ -37,13 +39,6 @@ function Upcategary() {
         // axios.post('http://localhost:8000/api/auth/like', { like })
     }
 
-    const [payment, setPayment] = useState(false)
-
-    const band = () => setPayment(false)
-    const Mymodel = () => {
-        setPayment(true);
-    }
-
     const navigate = useNavigate();
     // const handleRedirect = (id) => {
     //     // Redirect logic here
@@ -53,6 +48,22 @@ function Upcategary() {
     const handleViewDetails = (id) => {
         navigate(`/ViewDetails/${id}`);
     };
+
+    // Function to handle opening the dialog
+    const handleSendEnquiryOpen = () => {
+        setSendEnquiryOpen(true);
+    };
+
+    // if (loading) {
+    //     return <div style={{
+    //         display: 'flex',
+    //         justifyContent: 'center',
+    //         alignItems: 'center',
+    //         height: '100vh'
+    //     }}>
+    //         <PulseLoader color="#A6A9AC" />
+    //     </div>
+    // }
 
     return (
         <div>
@@ -76,13 +87,16 @@ function Upcategary() {
                     <button type='submit' className='btn2' ><span class="material-symbols-outlined">
                         search
                     </span>Search</button>
-                    {/*  */}
                 </div>
-                {/* {data.myData.map((item, index) => ( */}
                 {loading ? (
-                    <div>Loading...</div>
-                ) : error ? (
-                    <div>Error: {error}</div>
+                    <div style={{
+                        display: 'flex',
+                        justifyContent: 'center',
+                        alignItems: 'center',
+                        height: '100vh'
+                    }}>
+                        <PulseLoader color="#A6A9AC" />
+                    </div>
                 ) : success && contractor ? (
                     contractor.contractors.map((item, index) => (
                         <div className="doubleCard" key={index} onClick={() => handleFetch(item.id)}>
@@ -108,10 +122,10 @@ function Upcategary() {
 
                                         </div>
                                         <div className="uright10">
-                                            <button type='submit' onClick={Mymodel} className='numbtn'> Send Enquiry</button>
+                                            <button type='submit' onClick={handleSendEnquiryOpen} className='numbtn'> Send Enquiry</button>
                                             <button type='submit' onClick={() => handleViewDetails(item._id)} className='numbtn0'>View Details</button>
                                             <i className="fa-regular fa-heart" onChange={(e) => setLiked(e.target.value)} onSubmit={handleSubmit}></i>
-                                            {payment && <Send band={band} />}
+                                            <SendEnquiry open={sendEnquiryOpen} setOpen={setSendEnquiryOpen} />
                                         </div>
                                     </div>
 
@@ -128,4 +142,4 @@ function Upcategary() {
     )
 }
 
-export default Upcategary;
+export default Category;
