@@ -16,7 +16,7 @@ const Home = () => {
             <Banner />
             <Explore />
             <Know />
-            <Cardsinhome />
+            {/* <Cardsinhome /> */}
             <Knowourprocess />
             <Contactform />
             <Footer />

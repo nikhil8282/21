@@ -5,9 +5,14 @@ import {
   GET_USER_FAILURE,
   GET_USER_REQUEST,
   GET_USER_SUCCESS,
+  USER_EDIT_FAILURE,
+  USER_EDIT_REQUEST,
+  USER_EDIT_SUCCESS,
   USER_LOGIN_FAILURE,
   USER_LOGIN_REQUEST,
   USER_LOGIN_SUCCESS,
+  USER_LOGOUT_FAIL,
+  USER_LOGOUT_SUCCESS,
   USER_REGISTER_FAILURE,
   USER_REGISTER_REQUEST,
   USER_REGISTER_SUCCESS,
@@ -75,14 +80,11 @@ export const getUser = () => {
   return async (dispatch) => {
     dispatch({ type: GET_USER_REQUEST });
     try {
-      const token = Cookies.get('21sqft'); // Get the token from cookies
-      // if (!token) {
-      //   throw new Error('Authentication token not found');
-      // }
+      const token = Cookies.get('21sqft');
 
       const response = await axiosRequest.get('/user-auth/get', {
         headers: {
-          Authorization: `Bearer ${token}`, // Include the token in the request headers
+          Authorization: `Bearer ${token}`,
         },
       });
 
@@ -104,40 +106,82 @@ export const getUser = () => {
   };
 };
 
+// logout user
+export const userLogout = () => async (dispatch) => {
+  try {
+    const token = Cookies.get('21sqft');
+    console.log('Token from cookies:', token);
 
-// signin user
-// export const signInUser = createAsyncThunk(SIGN_IN_USER, async (body) => {
-//   const res = await fetch("http://localhost:8000/api/auth/user-login", {
-//     method: "post",
-//     headers: {
-//       "Content-Type": "application/json",
-//     },
-//     body: JSON.stringify(body),
-//   });
-//   return await res.json();
-// });
+    const config = {
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${token}`,
+      },
+    };
 
-// // change password user or edit user
-// export const changePasswordUser = createAsyncThunk(
-//   CHANGE_PASSWORD_USER,
-//   async (body) => {
-//     const res = await fetch(
-//       "http://localhost:8000/api/auth/user-change-password",
-//       {
-//         method: "post",
-//         headers: {
-//           "Content-Type": "application/json",
-//         },
-//         body: JSON.stringify(body),
-//       }
-//     );
-//     return await res.json();
-//   }
-// );
+    const data = await axiosRequest.get(
+      `/user-auth/logout`,
+      config
+    );
 
-// // logged user
-// export const loggedUser = createAsyncThunk(LOGGED_USER, async () => {
-//   let data = await fetch("http://localhost:8000/api/auth/logged-user");
-//   data = await data.json();
-//   // Show_data(data);
-// });
+    if (data.success) {
+      Cookies.remove('21sqft');
+      dispatch({ type: USER_LOGOUT_SUCCESS });
+    }
+
+  } catch (error) {
+    dispatch({
+      type: USER_LOGOUT_FAIL,
+      payload: error.response.data.message,
+      response: error.response,
+    });
+    throw error;
+  }
+};
+
+// user edit profile
+export const userEditProfile = (userEditProfileData) => async (dispatch) => {
+  try {
+    dispatch({ type: USER_EDIT_REQUEST });
+    const token = Cookies.get('21sqft');
+
+    const config = {
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      }
+    };
+
+    // Send PUT request to edit user profile
+    const { data } = await axiosRequest.put(
+      `/user-auth/edit`,
+      userEditProfileData,
+      config,
+    );
+
+    // Handle response
+    if (data.success) {
+      dispatch({
+        type: USER_EDIT_SUCCESS,
+        payload: data.user,
+      });
+      toast.success("Profile Updated Successfully");
+      // Handle navigation if needed
+    } else {
+      dispatch({
+        type: USER_EDIT_FAILURE,
+        payload: data.message || 'Edit profile failed. Please check your credentials.',
+      });
+      toast.error(data.message || 'Edit profile failed. Please check your credentials.');
+    }
+    return data
+
+  } catch (error) {
+    console.error(error.response?.data);
+    dispatch({
+      type: USER_EDIT_FAILURE,
+      payload: error.response?.data?.message || 'An error occurred',
+    });
+    toast.error(error.response?.data?.message || 'An error occurred');
+  }
+};

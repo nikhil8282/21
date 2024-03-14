@@ -102,7 +102,7 @@ export const getSupplier = () => {
       console.log(error);
       // console.error(`${error?.response?.data?.message || 'Something Went Wrong'}`);
       // toast.error(`${error?.response?.data?.message || 'Something Went Wrong'}`);
-      throw error;
+      // throw error;
     }
   };
 };

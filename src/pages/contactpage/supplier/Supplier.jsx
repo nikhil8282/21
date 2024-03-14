@@ -1,8 +1,6 @@
 import React, { useRef, useState } from 'react'
 import './supplier.css'
 import { Link, useNavigate } from 'react-router-dom'
-import Contractor1 from '../popup/Contractor1';
-// import { registerS } from '../../../REDUX/Actions/supplierAction';
 import { supplierRegister } from '../../../redux/actions/supplierAuthAction';
 import { useDispatch, useSelector } from 'react-redux';
 import { toast } from 'react-toastify';
@@ -100,7 +98,6 @@ function Supplier() {
     </div>
   }
 
-  // const [serviced, setServiced] = useState(false);
 
   const openServiceSidebar = () => {
     setServiced(true);
@@ -158,10 +155,8 @@ function Supplier() {
                     </div>
 
                   </div>
-                  {/* {serviced && <Contractor1 service0={service0} />} */}
-                  {serviced && <ServicesSidebar service0={closeServiceSidebar}/>}
+                  {serviced && <ServicesSidebar service0={closeServiceSidebar} />}
                 </div>
-
 
                 <div className="pniml3" >
 

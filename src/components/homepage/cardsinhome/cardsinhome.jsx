@@ -13,7 +13,7 @@ import { useSelector } from 'react-redux';
 function Cardsinhome() {
     const dispatch = useDispatch('')
     useEffect(() => {
-        dispatch(setFetch());
+        // dispatch(setFetch());
     }, [dispatch]);
     const { data } = useSelector(state => state.fetchReducer);
     const handleFetch = (id) => {

@@ -7,6 +7,7 @@ import profile from "./navbar images/Frame 6.png";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchSearchResults } from "../../../redux/actions/searchAction";
 import Cookies from "js-cookie";
+import UserProfileSidebar from "../../../containers/UserProfileSidebar/UserProfileSidebar";
 
 const Navbar = () => {
     const [searchQuery, setSearchQuery] = useState("");
@@ -105,7 +106,17 @@ const Navbar = () => {
         navigate("/searcher", { state: { results: filteredResults } });
         setShowResults(false);
     };
-    
+
+    const [showProfileSidebar, setShowProfileSidebar] = useState(false);
+
+    const openProfileSidebar = () => {
+        setShowProfileSidebar(true);
+    };
+
+    const closeProfileSidebar = () => {
+        setShowProfileSidebar(false);
+    };
+
     return (
         <div>
             <div
@@ -197,7 +208,11 @@ const Navbar = () => {
                     </div>
                     {/* <input className='navbar-search' type='text' placeholder='search here'></input> */}
 
-                    {Cookies.get("token") ? (
+                    <img className="navbar-profile" src={profile} alt="" onClick={openProfileSidebar} />
+                    {showProfileSidebar && (
+                        <UserProfileSidebar UserProfileSidebar={closeProfileSidebar} />
+                    )}
+                    {/* {Cookies.get("token") ? (
                         <Link className="footer-link-color" to="/profilesupplier">
                             <img className="navbar-profile" src={profile} alt=""></img>
                         </Link>
@@ -207,7 +222,7 @@ const Navbar = () => {
                                 Register
                             </Link>
                         </button>
-                    )}
+                    )} */}
                 </div>
                 <div
                     className={`burger ${isBurgerOpen ? "open" : ""}`}
