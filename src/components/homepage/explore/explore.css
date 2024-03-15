@@ -36,9 +36,10 @@
     border: 1px solid rgba(254, 204, 0, 1);
     background-color: rgba(254, 204, 0, 1);
     border-radius: 40px;
-    height: 45px;
-    /* padding: 15px; */
-    width: 290px;
+    /* height: 45px; */
+    padding: 10px;
+    box-sizing: border-box;
+    /* width: 290px; */
 }
 .explore-contractors{
     color: rgba(43, 42, 41, 1);
@@ -105,10 +106,6 @@
     .explore-p2{
         font-size: 16px;
     }
-    .explore-main-buttons{
-        text-align:start;
-        margin-left: 3%;
-    }
     .explore-main-buttons button.active{
         text-align: center;
         color: rgba(43, 42, 41, 1);
@@ -119,7 +116,7 @@
         background-color: rgba(254, 204, 0, 1);
         border-radius: 40px;
         padding: 4px;
-        width: 140px;
+        /* width: 140px; */
     }
     .explore-contractors{
         font-size: 10px;
@@ -225,9 +222,6 @@
     .explore-width{
         width: 65%;
     }   
-    .ew-three{
-        /* width: 5%; */
-    }
     .explore-pp{
         /* width: 84%; */
         text-align: center;

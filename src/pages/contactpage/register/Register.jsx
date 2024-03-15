@@ -1,5 +1,5 @@
 import React from "react";
-import "./signup.css";
+import "./register.css";
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
@@ -8,7 +8,7 @@ import { userRegister } from "../../../redux/actions/userAuthAction";
 import { toast } from 'react-toastify';
 import validator from 'validator';
 
-function RegisterationForm() {
+function Register() {
 
   const [email, setEmail] = useState("");
   const [userName, setUserName] = useState("");
@@ -67,78 +67,78 @@ function RegisterationForm() {
   }
 
   return (
-    <>
-      <div className="container-supplyl2">
-        <div className="img-supplyl2">
-          {/* <img src='/image/div2.jpg' alt='img' /> */}
-          <img src="/image/div1.jpg" alt="img" />
-        </div>
-        <form className="login-supplyl2">
-          <div className="pic210l2">
-            <div></div>
-            <img
-              src="/image/sq.jpg"
-              alt=""
-            ></img>
+    <div className="user-register">
+      <div className="left-ur">
+        <img src="/image/div1.jpg" alt="img" />
+      </div>
+      <form className="right-ur">
+        <div className="right-top-ur">
+          <div>
+            <Link to="/" className="ur-link">
+              Back
+            </Link>
           </div>
-          <div className="bwell2">
-            <div className="wel-supplyl2">Welcome!</div>
-            <div className="div-supplyl2">
-              <Link to="/login" className="user1l2">
-                User
-              </Link>
-              <Link to="/supplier" className="supply1l2">
-                Contractor/Supplier
-              </Link>
-            </div>
-            <div className="info-supplyl2">
-              <div className="user-logl2">
-                <label>Email Address</label>
+          <img src="/image/sq.jpg" alt="" />
+        </div>
+        <div className="user-register-form">
+          <div className="ur-welcome-text">
+            <h3>Welcome!</h3>
+          </div>
+          <div className="ur-tab-cont">
+            <Link to="/login" className="ur-register-link">
+              User
+            </Link>
+            <Link to="/supplier-login" className="ur-supplier-link">
+              Contractor/Supplier
+            </Link>
+          </div>
+          <div>
+            <div className="ur-form-field">
+              <label>Email Address
                 <input
                   type="email"
                   placeholder="Enter your Email Address"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                 />
-              </div>
-              <div className="user-log2l2">
-                <label>User name</label>
+              </label>
+            </div>
+            <div className="ur-form-field">
+              <label>User name
                 <input
                   type="text"
                   placeholder="Enter your User name"
                   value={userName}
                   onChange={(e) => setUserName(e.target.value)}
                 />
-              </div>
-              <div className="user-passl2">
-                <label>Password</label>
+              </label>
+            </div>
+            <div className="ur-form-field">
+              <label>Password
                 <input
                   type="password"
                   placeholder="Enter your password"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                 />
-              </div>
-            </div>
-            <div className="registration1l2">
-              <Link to="" className="butlerl2">
-                <button onClick={handleRegister} type="submit">
-                  Sign Up
-                </button>
-              </Link>
-              <div className="dosulppyl2">
-                {" "}
-                Already have an account.
-                <Link to="/" className="dkrl2">
-                  Login
-                </Link>
-              </div>
+              </label>
             </div>
           </div>
-        </form>
-      </div>
-    </>
+          <div className="bottom-ul">
+            <button onClick={handleRegister} type="submit">
+              Sign Up
+            </button>
+            <div>
+              Already have an account.
+              <Link to="/login" className="ur-link">
+                Login
+              </Link>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
   );
 }
 
-export default RegisterationForm;
+export default Register;

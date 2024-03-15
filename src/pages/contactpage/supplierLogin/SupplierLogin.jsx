@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import './supplylogin.css'
+import './supplierlogin.css'
 import { Link, useNavigate } from 'react-router-dom'
 import { FaArrowLeft } from 'react-icons/fa';
 import { useDispatch, useSelector } from 'react-redux'
@@ -7,7 +7,7 @@ import { supplierLogin } from '../../../redux/actions/supplierAuthAction';
 import { toast } from 'react-toastify';
 import { PulseLoader } from 'react-spinners';
 
-function Supplylogin() {
+function SupplierLogin() {
 
   const [phoneNo, setPhoneNo] = useState('');
   const [password, setPassword] = useState('');
@@ -57,49 +57,52 @@ function Supplylogin() {
   }
 
   return (
-    <div className='container-supplyl4'>
-      <div className='img-supplyl4'>
+    <div className='supplier-login'>
+      <div className='left-sl'>
         <img src='/image/div2.jpg' alt='img' />
       </div>
-      <div className='login-supplyl4'>
-        <div className="pic210l4">
-          <div></div>
-          <img src="/image/sq.jpg" alt="" />
-        </div>
-
-        <div className="bwell4">
+      <div className='right-sl'>
+        <div className="right-top-sl">
           <div>
-            <Link to="/" className="back-button">
-              <FaArrowLeft className="arrow-icon" />
+            <Link to="/" className="ul-link">
               Back
             </Link>
           </div>
+          <img src="/image/sq.jpg" alt="" />
+        </div>
 
-          <div className='wel-supplyl4'>Welcome!</div>
-          <div className='div-supplyl4'>
+        <div className="supplier-login-form">
+          <div className="sl-welcome-text">
+            <h3>Welcome!</h3>
+          </div>
 
-            <div className='user1l4'>User</div>
-            <div className='supply1l4'>Contractor/Supplier</div>
+          <div className="sl-tab-cont">
+            <Link to="/login" className="sl-user-link">
+              User
+            </Link>
+            <Link to="/supplier-login" className="sl-login-link">
+              Contractor/Supplier
+            </Link>
           </div>
 
           <form>
-            <div className='info-supplyl4'>
-              <div className='user-logl4'>
-                <label>Phone Number</label>
-                <input type="tel" value={phoneNo} onChange={e => setPhoneNo(e.target.value)} placeholder='Enter your phone number' />
+            <div>
+              <div className="sl-form-field">
+                <label>Phone Number
+                  <input type="tel" value={phoneNo} onChange={e => setPhoneNo(e.target.value)} placeholder='Enter your phone number' />
+                </label>
               </div>
 
-              <div className='user-passl4'>
-                <label>Password</label>
-                <input type="password" value={password} onChange={e => setPassword(e.target.value)} placeholder='Enter your password' />
+              <div className="sl-form-field">
+                <label>Password
+                  <input type="password" value={password} onChange={e => setPassword(e.target.value)} placeholder='Enter your password' />
+                </label>
               </div>
             </div>
-            <div className='registration1l4'>
-              <div >
-                <button type='submit' onClick={handleLogin}>Login</button>
-              </div>
-              <div className='dosulppyl4'> Don't have an account.
-                <Link to='/Supplier' className='dkrl4'>Register</Link>
+            <div className="bottom-sl">
+              <button type='submit' onClick={handleLogin}>Login</button>
+              <div> Don't have an account.
+                <Link to='/supplier-register' className='sl-link'>Register</Link>
               </div>
             </div>
           </form>
@@ -109,4 +112,4 @@ function Supplylogin() {
   )
 }
 
-export default Supplylogin
+export default SupplierLogin

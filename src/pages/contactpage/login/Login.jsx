@@ -57,78 +57,76 @@ function Login() {
   }
 
   return (
-    <>
-      <div className="container-supplyl1">
-        <div className="img-supplyl1">
-          {/* <img src='/image/div2.jpg' alt='img' /> */}
-          <img src="/image/div1.jpg" alt="img" />
-        </div>
-        <div className="login-supplyl1">
-          <div className="pic210l1">
-            <div></div>
-            <img
-              src="/image/sq.jpg"
-              alt=""
-            ></img>
+    <div className="user-login">
+      <div className="left-ul">
+        <img src="/image/div1.jpg" alt="img" />
+      </div>
+      <div className="right-ul">
+        <div className="right-top-ul">
+          <div>
+            <Link to="/" className="ul-link">
+              Back
+            </Link>
           </div>
-          <form className="bwell1">
-            <div className="wel-supplyl1">Welcome!</div>
-            <div className="div-supplyl1">
-              <Link to="/login" className="user1l1">
-                User
-              </Link>
-              <Link to="/supplier" className="supply1l1">
-                Contractor/Supplier
-              </Link>
-            </div>
-            <div className="info-supplyl1">
-              <div className="user-logl1">
-                <label>User name</label>
+          <img src="/image/sq.jpg" alt="" />
+        </div>
+
+        <form className="user-login-form">
+          <div className="ul-welcome-text">
+            <h3>Welcome!</h3>
+          </div>
+          <div className="ul-tab-cont">
+            <Link to="/login" className="ul-login-link">
+              User
+            </Link>
+            <Link to="/supplier-login" className="ul-supplier-link">
+              Contractor/ Supplier
+            </Link>
+          </div>
+          <div>
+            <div className="ul-form-field">
+              <label>User name
                 <input
                   type="text"
                   placeholder="Enter your User name"
                   value={userName}
                   onChange={(e) => setUserName(e.target.value)}
                 />
-              </div>
+              </label>
+            </div>
 
-              {/* <div className='user-log2'>
-                <label>User name</label>
-                <input type="text" placeholder='Enter your User name' />
-              </div> */}
-              <div className="user-passl1">
-                <label>Password</label>
+            <div className="ul-form-field">
+              <label>Password
                 <input
                   type="password"
                   placeholder="Enter your password"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                 />
-              </div>
+              </label>
             </div>
-            <div className="checkforl1">
-              <div className="checkedl1">
-                <input type="checkBox" />
-                <label> Remember me</label>
-              </div>
-              <div className="forgetl1">Forget Password?</div>
+          </div>
+          <div className="ul-forgot-cont">
+            <div className="checkedl1">
+              <input type="checkBox" />
+              <label> Remember me</label>
             </div>
-            <div className="registration1l1">
-              <button onClick={handleLogin} type="submit">
-                Login
-              </button>
-              <div className="dosulppyl1">
-                {" "}
-                Don't have an account.
-                <Link to="/Signup" className="dkrl1">
-                  Sign Up
-                </Link>
-              </div>
+            <div className="forgetl1">Forgot Password ?</div>
+          </div>
+          <div className="bottom-ul">
+            <button onClick={handleLogin} type="submit">
+              Login
+            </button>
+            <div>
+              Don't have an account.
+              <Link to="/register" className="ul-link">
+                Sign Up
+              </Link>
             </div>
-          </form>
-        </div>
+          </div>
+        </form>
       </div>
-    </>
+    </div>
   );
 }
 

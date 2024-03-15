@@ -6,8 +6,16 @@ import pseudo from './knowourprocess images/pseudo.png'
 import diversity from './knowourprocess images/Group 274 (1)diversity.png'
 import supplier from './knowourprocess images/Group 275 (1)supplier.png'
 import call from './knowourprocess images/Group 276call.png'
+import { useNavigate } from 'react-router-dom'
 
 const Knowourprocess = () => {
+
+    const navigate = useNavigate();
+
+    const handleLogin = () => {
+        navigate('/login')
+    }
+
     return (
         <>
             <div>
@@ -18,7 +26,7 @@ const Knowourprocess = () => {
                             <div className='knowprocess-div1'>
                                 <p className='knowprocess-p1'>LOGIN NOW</p>
                                 <p className='knowprocess-p2'>AS USERS OR SUPPLIER/CONTRACTORS</p>
-                                <button className='knowprocess-btn'>Login Now</button>
+                                <button className='knowprocess-btn' onClick={handleLogin}>Login Now</button>
                             </div>
                             <div className='knowprocess-div2'>
                                 {/* <img className='knowprocess-img' src={img} alt=''></img> */}

@@ -59,12 +59,7 @@ export const USER_PROFILE = 'USER_PROFILE';
 
 // export const SEND_MAIL = 'SEND_MAIL';
 
-// 
 
-export const CONTACT_REQUEST = 'CONTACT_REQUEST';
-export const CONTACT_SUCCESS = 'CONTACT_SUCCESS';
-export const CONTACT_FAILURE = 'CONTACT_FAILURE';
-export const SET_CONTACT = "SET_CONTACT"
 
 export const GET_IN_TOUCH_REQUEST = 'GET_IN_TOUCH_REQUEST';
 export const GET_IN_TOUCH_SUCCESS = 'GET_IN_TOUCH_SUCCESS';

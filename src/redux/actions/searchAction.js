@@ -1,5 +1,5 @@
-import axios from 'axios';
 import { SEARCH_REQUEST, SEARCH_SUCCESS, SEARCH_FAILURE } from '../constants/constant';
+import axiosRequest from '../../services/ApiCall';
 
 export const fetchSearchResults = () => {
     return async (dispatch) => {
@@ -7,7 +7,7 @@ export const fetchSearchResults = () => {
         console.log()
         // console.log(id)
         try {
-            const response = await axios.get(`http://localhost:8000/api/auth/search`, {})
+            const response = await axiosRequest.get(`/contractor/search`, {})
             // .then((response) => response.json())
             // .then((json) => {
             // console.log(json);

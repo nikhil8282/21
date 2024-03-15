@@ -79,14 +79,16 @@ function Category() {
                 <div className="onimage">
                     <button type='submit' className='btn01'><p>Location <p className='mm01'>Ex Noida</p></p> </button>
                     <button type='submit' className='btn1'>Services<span class="material-symbols-outlined">
-                        expand_more
+                        {/* expand_more */}
                     </span> </button>
                     <button type='submit' className='btn1'>Budget<span class="material-symbols-outlined">
-                        expand_more
+                        {/* expand_more */}
                     </span> </button>
                     <button type='submit' className='btn2' ><span class="material-symbols-outlined">
                         search
-                    </span>Search</button>
+                    </span>
+                    {/* Search */}
+                    </button>
                 </div>
                 {loading ? (
                     <div style={{

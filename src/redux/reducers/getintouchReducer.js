@@ -1,4 +1,8 @@
-import { GET_IN_TOUCH_REQUEST, GET_IN_TOUCH_SUCCESS, GET_IN_TOUCH_FAILURE } from '../constants/constant'
+import {
+    GET_IN_TOUCH_REQUEST,
+    GET_IN_TOUCH_SUCCESS,
+    GET_IN_TOUCH_FAILURE
+} from '../constants/constant'
 
 const initialGetInTouchState = {
     loading: false,
@@ -7,7 +11,7 @@ const initialGetInTouchState = {
     data: null
 }
 
-export const getintouchReducer = (state = initialGetInTouchState, action) => {
+export const getInTouchReducer = (state = initialGetInTouchState, action) => {
     // console.log(action)
     switch (action.type) {
         case GET_IN_TOUCH_REQUEST:
@@ -17,20 +21,25 @@ export const getintouchReducer = (state = initialGetInTouchState, action) => {
                 error: null,
                 success: false
             };
+
         case GET_IN_TOUCH_SUCCESS:
             return {
                 ...state,
                 loading: false,
                 success: true,
-                data: action.payload
+                data: action.payload,
+                error: null,
             };
+
         case GET_IN_TOUCH_FAILURE:
             return {
                 ...state,
                 loading: false,
                 error: action.error,
-                success: false
+                success: false,
+                data: null,
             }
+
         default:
             return state;
     }

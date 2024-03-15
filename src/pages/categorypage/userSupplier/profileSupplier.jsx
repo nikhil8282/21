@@ -1,6 +1,6 @@
-import React, { useState,useEffect } from 'react'
+import React, { useEffect } from 'react'
 import './profilesupplier.css'
-import EditSupplier from './EditprofileSupplier'
+// import EditSupplier from './EditprofileSupplier'
 import Navbar from '../../../components/homepage/Navbar/navbar'
 import Footer from '../../../components/homepage/footer/footer'
 // import Cookies from 'universal-cookie'
@@ -8,15 +8,15 @@ import Cookies from 'js-cookie';
 // import { useNavigate } from 'react-router-dom'; 
 
 // import { logout } from '../../../REDUX/Actions/supplierAction'
-import { logout } from '../../../redux/actions/supplierAuthAction'
+// import { logout } from '../../../redux/actions/supplierAuthAction'
 import { useNavigate } from 'react-router-dom'
 // import Cookies from 'js-cookie';
 // import { useDispatch } from 'react-redux'
 
 function ProfileSupplier() {
-    const [changed, setChanged] = useState(false)
-    const changed1 = () => setChanged(true)
-    const changed0 = () => setChanged(false)
+    // const [changed, setChanged] = useState(false)
+    // const changed1 = () => setChanged(true)
+    // const changed0 = () => setChanged(false)
 
 
     // const cookies = new Cookies();
@@ -30,15 +30,15 @@ function ProfileSupplier() {
         if (!Cookies.get('token')) {
             navigate('/');
         }
-    }, [navigate]);   
-     // const cookies = new Cookies();
-        // cookies.remove(logout);
-    
-    
+    }, [navigate]);
+    // const cookies = new Cookies();
+    // cookies.remove(logout);
+
+
     const handleLogout = () => {
         // Cookies.remove('name', { path: '' })
         Cookies.remove('token', { path: '' })
-       
+
         // Cookies.remove('httpONLY', { path: '/' }) // removed!
         navigate('/'); // Redirect to homepage after logout
 
@@ -67,10 +67,10 @@ function ProfileSupplier() {
                         <div className="rightdv">
                             <div className="mmdv" >
                                 <div className="mm2dv"></div>
-                                <button type='submit' onClick={changed1} className='upperdv'>Edit <i className="fa-regular fa-pen-to-square"></i></button>
+                                {/* <button type='submit' onClick={changed1} className='upperdv'>Edit <i className="fa-regular fa-pen-to-square"></i></button> */}
 
                             </div>
-                            {changed && <EditSupplier changed0={changed0} />}
+                            {/* {changed && <EditSupplier changed0={changed0} />} */}
                             <h4>Shubham Construction Co.</h4>
                             <p className='smedv'>Shubham Construction Co. for your for your next Construction project </p>
 

@@ -1,13 +1,15 @@
-import axios from 'axios';
-import { GET_IN_TOUCH_REQUEST, GET_IN_TOUCH_SUCCESS, GET_IN_TOUCH_FAILURE } from '../constants/constant'
+import {
+    GET_IN_TOUCH_REQUEST,
+    GET_IN_TOUCH_SUCCESS,
+    GET_IN_TOUCH_FAILURE
+} from '../constants/constant'
+import { axiosRequest } from '../../services/ApiCall.js';
 
-// export const SET_GET_IN_TOUCH = 'SET_GET_IN_TOUCH';
-
-export const setGetInTouch = (name, email, phone, msg) => {
+export const getInTouch = (name, email, phone, message) => {
     return async (dispatch) => {
         dispatch({ type: GET_IN_TOUCH_REQUEST });
         try {
-            const response = axios.post('http://localhost:8000/api/auth/get-in-touch-with-us', { name, email, phone, msg })
+            const response = axiosRequest.post('/get-in-touch-with-us', { name, email, phone, message })
             // dispatch({
             // type: SET_GET_IN_TOUCH,
             // payload: response.data

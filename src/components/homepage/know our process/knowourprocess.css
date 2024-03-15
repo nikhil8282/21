@@ -1,17 +1,20 @@
-*{
+* {
     margin: 0px;
     padding: 0px;
     box-sizing: border-box;
 }
-.know-foot{
+
+.know-foot {
     background-color: rgba(254, 198, 63, 1);
     /* margin-top: 6%; */
     height: 40px;
     width: 100%;
 }
-.first-section{
+
+.first-section {
     height: 62.5vh;
 }
+
 .knowprocess-background-container {
     background-image: url('./knowourprocess images/Group\ together.png');
     position: absolute;
@@ -20,28 +23,33 @@
     z-index: -1;
     /* height: 100%; */
 }
-#knowprocess{
+
+#knowprocess {
     display: flex;
     gap: 12%;
     margin-top: 12%;
     margin-bottom: 10%;
 }
-.knowprocess-div1{
+
+.knowprocess-div1 {
     margin-left: 16%;
 }
-.knowprocess-p1{
+
+.knowprocess-p1 {
     color: rgba(255, 255, 255, 1);
     font: 'Work Sans';
     font-weight: 700;
     font-size: 26px;
 }
-.knowprocess-p2{
+
+.knowprocess-p2 {
     color: rgba(255, 255, 255, 1);
     font: 'Work Sans';
     font-weight: 700;
     font-size: 26px;
 }
-.knowprocess-btn{
+
+.knowprocess-btn {
     color: rgba(43, 42, 41, 1);
     background-color: rgba(254, 198, 63, 1);
     font: 'Roboto';
@@ -51,17 +59,21 @@
     width: 120px;
     box-shadow: 2px 2px grey;
     margin-top: 5%;
+    cursor: pointer;
 }
-.knowprocess-div2{
+
+.knowprocess-div2 {
     margin-top: 4%;
 }
-.knowprocess-img{
+
+.knowprocess-img {
     position: absolute;
     width: 350px;
     height: 110px;
     top: 62%;
 }
-.second-section{
+
+.second-section {
     background-image: url('./knowourprocess images/div.elementor-background-overlay\ \(1\).png');
     position: relative;
     background-size: cover;
@@ -71,114 +83,135 @@
     padding-bottom: 10%;
     z-index: -1;
 }
-.knowprocess-lower{
+
+.knowprocess-lower {
     display: flex;
     max-width: 60%;
     margin: auto;
     gap: 13%;
     text-align: center;
 }
-.kp-one{
+
+.kp-one {
     padding: 3% 0% 3% 8%;
+    box-sizing: border-box;
 }
-.testimonials{
+
+.testimonials {
     color: rgba(254, 198, 63, 1);
     font: 'Roboto';
     font-weight: 500;
     font-size: 14px;
 }
-.testimonials2{
+
+.testimonials2 {
     position: relative;
     color: rgba(24, 25, 28, 1);
     font: 'Lexend';
     font-weight: 700;
     font-size: 36px;
 }
-.pseudo{
+
+.pseudo {
     position: absolute;
     width: 30px;
     height: 18px;
     top: 20.4%;
     left: 7.8%;
 }
-.yellow{
+
+.yellow {
     width: 55px;
     height: 55px;
 }
-.steps{
-    color:  rgba(0, 0, 0, 1);
-    font-weight: 400;
-    font: 'Roboto';
+
+.steps {
+    color: #2B2A29;
+    font-weight: 500;
+    font-family: Roboto;
     font-size: 16px;
     padding: 5px;
 }
-.steps-p{
-    color: rgba(43, 42, 41, 1);
-    font: 'Roboto';
+
+.steps-p {
+    color: #2B2A29;
+    font: Roboto;
     font-weight: 400;
     font-size: 16px;
-    line-height: 16px;
+    line-height: 20px;
 }
-.diversity{
-    position: absolute; 
+
+.diversity {
+    position: absolute;
     width: 32px;
     height: 46px;
     left: 25.9%;
     top: 37.3%;
 }
-.knowprocess-supplier{
+
+.knowprocess-supplier {
     position: absolute;
     width: 30px;
     height: 30px;
     left: 47.8%;
     top: 38.6%;
 }
-.kp-call{
+
+.kp-call {
     position: absolute;
     width: 32px;
     height: 35px;
     right: 27%;
     top: 38.6%;
 }
-@media only screen and (max-width: 320px){
-    .first-section{
+
+@media only screen and (max-width: 320px) {
+    .first-section {
         height: 33.5vh;
     }
+
     .knowprocess-background-container {
         background-image: url('./knowourprocess images/Group\ together.png');
         position: relative;
         background-size: cover;
         width: 100%;
-        /* height: 65%; */
-        min-height: 65%;
+        height: 100%;
+        /* min-height: 65%; */
     }
-    #knowprocess{
+
+    #knowprocess {
         position: absolute;
         margin-top: 5%;
     }
-    .knowprocess-div1{
+
+    .knowprocess-div1 {
         margin-left: 6%;
     }
-    .knowprocess-p1{
+
+    .knowprocess-p1 {
         font-size: 16px;
     }
-    .knowprocess-p2{
+
+    .knowprocess-p2 {
         font-size: 16px;
     }
-    .knowprocess-btn{
+
+    .knowprocess-btn {
         padding: 2px;
         width: 90px;
         box-shadow: 1px 1px grey;
         margin-top: 5%;
     }
-    .knowprocess-img{
+
+    .knowprocess-img {
         position: absolute;
         width: 160px;
         height: 54px;
         top: 60%;
         left: 48%;
     }
-    .second-section{
+
+    .second-section {
         background-image: url('./knowourprocess images/div.elementor-background-overlay\ \(1\).png');
         position: relative;
         background-size: cover;
@@ -187,7 +220,8 @@
         background-color: rgba(242, 243, 247, 1);
         padding-bottom: 10%;
     }
-    .knowprocess-lower{
+
+    .knowprocess-lower {
         display: flex;
         flex-direction: column;
         max-width: 60%;
@@ -195,52 +229,63 @@
         gap: 15%;
         text-align: center;
     }
-    .kp-one{
+
+    .kp-one {
         padding: 3% 0% 3% 8%;
+        box-sizing: border-box;
     }
-    .testimonials{
+
+    .testimonials {
         font-size: 10px;
     }
-    .testimonials2{
+
+    .testimonials2 {
         /* position: relative; */
         font-size: 20px;
     }
-    .pseudo{
+
+    .pseudo {
         position: absolute;
         width: 20px;
         height: 12px;
         top: 7%;
         left: 6%;
     }
-    .yellow{
+
+    .yellow {
         margin-top: 6%;
         right: 5%;
         width: 50px;
         height: 50px;
     }
-    .steps{
+
+    .steps {
         font-size: 16px;
         padding: 4px;
     }
-    .steps-p{
+
+    .steps-p {
         font-size: 14px;
         line-height: 16px;
     }
-    .diversity{
-        position: absolute; 
+
+    .diversity {
+        position: absolute;
         width: 32px;
         height: 46px;
         left: 44.4%;
         top: 15%;
     }
-    .knowprocess-supplier{
+
+    .knowprocess-supplier {
         position: absolute;
         width: 30px;
         height: 30px;
         left: 44.5%;
         top: 42.6%;
     }
-    .kp-call{
+
+    .kp-call {
         position: absolute;
         width: 32px;
         height: 35px;
@@ -248,10 +293,12 @@
         top: 68.4%;
     }
 }
-@media (min-width:321px) and (max-width:412px){
-    .first-section{
+
+@media (min-width:321px) and (max-width:412px) {
+    .first-section {
         height: 28vh;
     }
+
     .knowprocess-background-container {
         background-image: url('./knowourprocess images/Group\ together.png');
         position: absolute;
@@ -259,33 +306,40 @@
         width: 100%;
         height: 28%;
     }
-    #knowprocess{
+
+    #knowprocess {
         margin-top: 9%;
     }
-    .knowprocess-div1{
+
+    .knowprocess-div1 {
         margin-left: 6%;
     }
-    .knowprocess-p1{
+
+    .knowprocess-p1 {
         font-size: 16px;
     }
-    .knowprocess-p2{
+
+    .knowprocess-p2 {
         font-size: 16px;
     }
-    .knowprocess-btn{
+
+    .knowprocess-btn {
         font-size: 12px;
         padding: 2px;
         width: 90px;
         box-shadow: 1px 1px grey;
         margin-top: 8%;
     }
-    .knowprocess-img{
+
+    .knowprocess-img {
         position: absolute;
         width: 200px;
         height: 64px;
         top: 60%;
         right: 8%;
     }
-    .second-section{
+
+    .second-section {
         background-image: url('./knowourprocess images/div.elementor-background-overlay\ \(1\).png');
         position: relative;
         background-size: cover;
@@ -294,7 +348,8 @@
         background-color: rgba(242, 243, 247, 1);
         padding-bottom: 10%;
     }
-    .knowprocess-lower{
+
+    .knowprocess-lower {
         display: flex;
         flex-direction: column;
         max-width: 60%;
@@ -302,50 +357,61 @@
         gap: 5%;
         text-align: center;
     }
-    .kp-one{
+
+    .kp-one {
         padding: 3% 0% 3% 8%;
+        box-sizing: border-box;
     }
-    .testimonials{
+
+    .testimonials {
         font-size: 11px;
     }
-    .testimonials2{
+
+    .testimonials2 {
         font-size: 22px;
     }
-    .pseudo{
+
+    .pseudo {
         position: absolute;
         width: 20px;
         height: 12px;
         top: 9%;
         left: 7%;
     }
-    .yellow{
+
+    .yellow {
         margin-top: 6%;
         width: 45px;
         height: 45px;
     }
-    .steps{
+
+    .steps {
         font-size: 16px;
         padding: 1px;
     }
-    .steps-p{
+
+    .steps-p {
         font-size: 14px;
         line-height: 16px;
     }
-    .diversity{
-        position: absolute; 
+
+    .diversity {
+        position: absolute;
         width: 32px;
         height: 46px;
         left: 46.6%;
         top: 18.6%;
     }
-    .knowprocess-supplier{
+
+    .knowprocess-supplier {
         position: absolute;
         width: 30px;
         height: 30px;
         left: 46.3%;
         top: 44.6%;
     }
-    .kp-call{
+
+    .kp-call {
         position: absolute;
         width: 32px;
         height: 35px;
@@ -353,193 +419,232 @@
         top: 70%;
     }
 }
-@media (min-width:413px) and (max-width:576px){
-    .first-section{
+
+@media (min-width:413px) and (max-width:576px) {
+    .first-section {
         height: 34vh;
         /* width: 100%; */
     }
+
     .knowprocess-background-container {
         background-image: url('./knowourprocess images/Group\ together.png');
         position: absolute;
         background-size: cover;
-        width: 110%;
+        width: 100%;
     }
-    #knowprocess{
+
+    #knowprocess {
         display: flex;
         gap: 12%;
         margin-top: 5%;
         margin-bottom: 10%;
     }
-    .knowprocess-div1{
+
+    .knowprocess-div1 {
         margin-left: 9%;
     }
-    .knowprocess-p1{
+
+    .knowprocess-p1 {
         font-size: 20px;
     }
-    .knowprocess-p2{
+
+    .knowprocess-p2 {
         font-size: 20px;
     }
-    .knowprocess-btn{
+
+    .knowprocess-btn {
         font-size: 14px;
         padding: 5px;
         width: 100px;
         box-shadow: 2px 2px grey;
         margin-top: 5%;
     }
-    .knowprocess-img{
+
+    .knowprocess-img {
         position: absolute;
         width: 260px;
         height: 80px;
         left: 46%;
         top: 54%;
     }
-    .second-section{
+
+    .second-section {
         background-image: url('./knowourprocess images/div.elementor-background-overlay\ \(1\).png');
         position: relative;
         background-size: cover;
         opacity: 100%;
-        width: 110%;
+        width: 100%;
     }
-    .knowprocess-lower{
+
+    .knowprocess-lower {
         display: flex;
         max-width: 90%;
         margin: auto;
         gap: 2%;
         text-align: center;
     }
-    .kp-one{
+
+    .kp-one {
         padding: 3% 0% 3% 8%;
     }
-    .testimonials{
+
+    .testimonials {
         font-size: 14px;
     }
-    .testimonials2{
+
+    .testimonials2 {
         position: relative;
         font-size: 36px;
     }
-    .pseudo{
+
+    .pseudo {
         position: absolute;
         width: 30px;
         height: 18px;
         top: 20.4%;
         left: 7.8%;
     }
-    .yellow{
+
+    .yellow {
         width: 55px;
         height: 55px;
     }
-    .steps{
+
+    .steps {
         font-size: 16px;
         padding: 5px;
     }
-    .steps-p{
+
+    .steps-p {
         font-size: 14px;
         line-height: 15px;
     }
-    .diversity{
-        position: absolute; 
+
+    .diversity {
+        position: absolute;
         width: 32px;
         height: 46px;
         left: 15.9%;
         top: 37.3%;
     }
-    .knowprocess-supplier{
+
+    .knowprocess-supplier {
         position: absolute;
         width: 30px;
         height: 30px;
         left: 44.8%;
         top: 38.6%;
     }
-    .kp-call{
+
+    .kp-call {
         position: absolute;
         width: 32px;
         height: 35px;
         right: 18%;
         top: 38.6%;
-    }   
+    }
 }
-@media (min-width:577px) and (max-width:768px){
-    .first-section{
+
+@media (min-width:577px) and (max-width:768px) {
+    .first-section {
         height: 43vh;
     }
+
     .knowprocess-background-container {
         background-image: url('./knowourprocess images/Group\ together.png');
         position: absolute;
         background-size: cover;
-        width: 102%;
+        width: 100%;
     }
-    .knowprocess-div1{
+
+    .knowprocess-div1 {
         margin-left: 7%;
     }
-    .knowprocess-p1{
+
+    .knowprocess-p1 {
         font-size: 20px;
         margin-top: -10%;
     }
-    .knowprocess-p2{
+
+    .knowprocess-p2 {
         font-size: 20px;
     }
-    .knowprocess-img{
+
+    .knowprocess-img {
         position: absolute;
         width: 350px;
         height: 110px;
         left: 48%;
         top: 55%;
     }
-    .second-section{
-        width: 102%;
+
+    .second-section {
+        width: 100%;
         padding-bottom: 7%;
     }
-    .knowprocess-lower{
+
+    .knowprocess-lower {
         display: flex;
         max-width: 80%;
         margin: auto;
         gap: 5%;
         text-align: center;
     }
-    .kp-one{
+
+    .kp-one {
         padding: 3% 0% 3% 8%;
+        box-sizing: border-box;
     }
-    .testimonials{
+
+    .testimonials {
         font-size: 14px;
     }
-    .testimonials2{
+
+    .testimonials2 {
         position: relative;
         font-size: 36px;
     }
-    .pseudo{
+
+    .pseudo {
         position: absolute;
         width: 30px;
         height: 18px;
         top: 22.4%;
         left: 7.4%;
     }
-    .yellow{
+
+    .yellow {
         width: 55px;
         height: 55px;
     }
-    .steps{
+
+    .steps {
         font-size: 16px;
         padding: 6px;
     }
-    .steps-p{
+
+    .steps-p {
         font-size: 16px;
         line-height: 16px;
     }
-    .diversity{
-        position: absolute; 
+
+    .diversity {
+        position: absolute;
         width: 32px;
         height: 46px;
         left: 19.7%;
         top: 42.6%;
     }
-    .knowprocess-supplier{
+
+    .knowprocess-supplier {
         position: absolute;
         width: 30px;
         height: 30px;
         left: 46.6%;
         top: 44.6%;
     }
-    .kp-call{
+
+    .kp-call {
         position: absolute;
         width: 32px;
         height: 35px;

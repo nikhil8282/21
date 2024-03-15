@@ -84,10 +84,11 @@ function Read() {
           </div>
         </div>
 
-        <div className="pre"> <a href='/why-work-zone-safety-is-important-for-everyone' className='pre1'>
-          <span>Previous Post</span>
-        </a></div>
-
+        <div className="pre">
+          <a href='/why-work-zone-safety-is-important-for-everyone' className='pre1'>
+            <span>Previous Post</span>
+          </a>
+        </div>
 
 
         <div className='re10'> </div>

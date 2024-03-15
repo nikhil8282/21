@@ -6,12 +6,11 @@ import squarefeet from "./navbar images/21SQFT B 1.png";
 import profile from "./navbar images/Frame 6.png";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchSearchResults } from "../../../redux/actions/searchAction";
-import Cookies from "js-cookie";
 import UserProfileSidebar from "../../../containers/UserProfileSidebar/UserProfileSidebar";
+import { FaSearch } from "react-icons/fa";
 
 const Navbar = () => {
     const [searchQuery, setSearchQuery] = useState("");
-    const dispatch = useDispatch();
     const [showResults, setShowResults] = useState(false);
     // const { data } = useSelector(state => state.searchReducer);
     const searchResults = useSelector((state) => state.searchReducer.data);
@@ -21,14 +20,17 @@ const Navbar = () => {
     const menuRef = useRef(null);
     const resultBoxRef = useRef(null);
     // const [name,setName]=useState('')
+    const dispatch = useDispatch();
+
     useEffect(() => {
-        if (searchQuery) {
+        if (searchQuery.length) {
             setShowResults(true);
             dispatch(fetchSearchResults(searchQuery));
         } else {
             setShowResults(false);
         }
     }, [searchQuery, dispatch]);
+
     useEffect(() => {
         const handleClickOutside = (event) => {
             if (menuRef.current && !menuRef.current.contains(event.target)) {
@@ -41,6 +43,7 @@ const Navbar = () => {
             document.removeEventListener("mousedown", handleClickOutside);
         };
     }, []);
+
     useEffect(() => {
         const handleClickOutside = (event) => {
             if (
@@ -60,10 +63,12 @@ const Navbar = () => {
     // const closeSideBar = () => {
     // setBarClose('false')
     // }
+    // console.log(searchResults);
     const toggleMenu = () => {
         setShowMenu(!showMenu);
         setIsBurgerOpen(!isBurgerOpen); // Toggle menu visibility
     };
+
     const closeMenu = () => {
         setShowMenu(false);
         setIsBurgerOpen(false); // Close the burger menu
@@ -72,6 +77,7 @@ const Navbar = () => {
     const handleSearchChange = (e) => {
         setSearchQuery(e.target.value);
     };
+
     const handleKeyPress = (e) => {
         if (e.key === "Enter") {
             setShowResults(false);
@@ -117,10 +123,19 @@ const Navbar = () => {
         setShowProfileSidebar(false);
     };
 
+    const { isUserAuthenticated } = useSelector(state => state.userReducer);
+    const { isSupplierAuthenticated, supplier } = useSelector(state => state.supplierAuthReducer);
+
+    const handleSupplierProfile = () => {
+        const id = supplier.contractor.id;
+        navigate(`/ViewDetails/${id}`);
+    };
+
+
     return (
         <div>
             <div
-                className={`navbar h-nav-resp ${showMenu ? "show-menu" : ""}`}
+                className={`navbar ${showMenu ? "show-menu" : ""}`}
                 ref={menuRef}
             >
                 <div className="div-1">
@@ -141,7 +156,7 @@ const Navbar = () => {
                             autocomplete="off"
                         />
                         <button>
-                            <i className="fa-solid fa-magnifying-glass"></i>
+                            <FaSearch />
                         </button>
                     </div>
                     {showResults && (
@@ -208,21 +223,37 @@ const Navbar = () => {
                     </div>
                     {/* <input className='navbar-search' type='text' placeholder='search here'></input> */}
 
-                    <img className="navbar-profile" src={profile} alt="" onClick={openProfileSidebar} />
+                    {/* <img className="navbar-profile" src={profile} alt="" onClick={openProfileSidebar} />
                     {showProfileSidebar && (
                         <UserProfileSidebar UserProfileSidebar={closeProfileSidebar} />
                     )}
-                    {/* {Cookies.get("token") ? (
-                        <Link className="footer-link-color" to="/profilesupplier">
-                            <img className="navbar-profile" src={profile} alt=""></img>
+
+                    <img className="navbar-profile" src={profile} alt="" onClick={handleSupplierProfile} />
+
+                    <button className="nav-btn">
+                        <Link className="navbar-link-color-register" to="/login">
+                            Register
                         </Link>
+                    </button> */}
+
+                    {isUserAuthenticated ? (
+                        <div>
+                            <img className="navbar-profile" src={profile} alt="" onClick={openProfileSidebar} />
+                            {showProfileSidebar && (
+                                <UserProfileSidebar UserProfileSidebar={closeProfileSidebar} />
+                            )}
+                        </div>
+
+                    ) : isSupplierAuthenticated ? (
+                        <img className="navbar-profile" src={profile} alt="" onClick={handleSupplierProfile} />
                     ) : (
                         <button className="nav-btn">
                             <Link className="navbar-link-color-register" to="/login">
                                 Register
                             </Link>
                         </button>
-                    )} */}
+                    )}
+
                 </div>
                 <div
                     className={`burger ${isBurgerOpen ? "open" : ""}`}
@@ -231,9 +262,11 @@ const Navbar = () => {
                     <div className="line"></div>
                     <div className="line"></div>
                     <div className="line"></div>
+                    {/* <FaBars /> */}
                 </div>
             </div>
         </div>
     );
 };
+
 export default Navbar;

@@ -1,5 +1,5 @@
 import React, { useRef, useState } from 'react'
-import './supplier.css'
+import './supplierregister.css'
 import { Link, useNavigate } from 'react-router-dom'
 import { supplierRegister } from '../../../redux/actions/supplierAuthAction';
 import { useDispatch, useSelector } from 'react-redux';
@@ -7,15 +7,15 @@ import { toast } from 'react-toastify';
 import { PulseLoader } from 'react-spinners';
 import ServicesSidebar from '../../../containers/ServicesSidebar/ServicesSidebar';
 
-function Supplier() {
+function SupplierRegister() {
 
   const inputRef = useRef(null)
   const [profilePic, setProfilePic] = useState('');
 
-  const handleimg = () => {
-    inputRef.current.click()
+  // const handleimg = () => {
+  //   inputRef.current.click()
 
-  }
+  // }
   const changeimg = (event) => {
     const file = event.target.files[0];
     console.log(file)
@@ -25,14 +25,14 @@ function Supplier() {
 
 
   const [serviced, setServiced] = useState(false)
-  const service1 = () => setServiced(true)
-  const service0 = () => {
-    setServiced(false)
-    setService(sessionStorage.getItem('opts'));
+  // const service1 = () => setServiced(true)
+  // const service0 = () => {
+  //   setServiced(false)
+  //   setService(sessionStorage.getItem('opts'));
 
-  }
+  // }
 
-  const [service, setService] = useState("null");
+  const [service, setService] = useState("");
   const [name, setName] = useState('')
   const [phoneNo, setPhoneNo] = useState('')
   // const[serviced,setServiced]=useState('')
@@ -126,7 +126,7 @@ function Supplier() {
             <div className='div-supplyl3'>
 
               <Link to='/login' className='user1l3'>User</Link>
-              <Link to='/supplier' className='supply1l3'>Contractor/Supplier</Link>
+              <Link to='/supplier-login' className='supply1l3'>Contractor/Supplier</Link>
             </div>
             <div className='info-supplyl3'>
               <div className="Bhrl3">
@@ -197,7 +197,7 @@ function Supplier() {
                 <button type='submit' onClick={handleRegister}>Registration</button>
               </div>
               <div className='dosulppyl3'> Already have an account
-                <Link to='/Supplylogin' className='dkrl3'>Login</Link></div>
+                <Link to='/supplier-login' className='dkrl3'>Login</Link></div>
             </div>
           </form>
         </div>
@@ -206,4 +206,4 @@ function Supplier() {
   )
 }
 
-export default Supplier
+export default SupplierRegister

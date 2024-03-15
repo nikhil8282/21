@@ -2,7 +2,7 @@ import {
     CONTACT_REQUEST,
     CONTACT_SUCCESS,
     CONTACT_FAILURE
-} from '../constants/constant'
+} from '../constants/contactConstant.js'
 import { axiosRequest } from '../../services/ApiCall.js';
 
 export const setContact = (name, email, phone, service, message) => {

@@ -2,22 +2,26 @@ import React, { useState, useEffect } from 'react'
 import './viewdetails.css'
 import Navbar from '../../components/homepage/Navbar/navbar'
 import Footer from '../../components/homepage/footer/footer'
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { getContractorDetail } from '../../redux/actions/contractorAction';
 import SendEnquiry from '../../containers/SendEnquiry/SendEnquiry';
 import { PulseLoader } from 'react-spinners';
 import { FaPhoneAlt, FaRegEdit } from 'react-icons/fa';
 import { CiLocationOn } from "react-icons/ci";
+import SupplierEditSidebar from '../../containers/SupplierEditSidebar/SupplierEditSidebar';
+import { getSupplier, supplierLogout } from '../../redux/actions/supplierAuthAction';
 
 function ViewDetails() {
     // const location = useLocation();
     // const item = location.state.id;
     const { id } = useParams();
     const dispatch = useDispatch();
+    const navigate = useNavigate();
     const { loading, contractorDetail } = useSelector(state => state.contractorReducer);
     const { isSupplierAuthenticated } = useSelector(state => state.supplierAuthReducer);
     const [sendEnquiryOpen, setSendEnquiryOpen] = useState(false);
+    const [showEditProfileSidebar, setShowEditProfileSidebar] = useState(false);
 
     useEffect(() => {
         dispatch(getContractorDetail(id)); // Dispatch action to fetch contractor details when component mounts
@@ -31,6 +35,20 @@ function ViewDetails() {
         setSendEnquiryOpen(true);
     };
 
+    const openEditProfileSidebar = () => {
+        setShowEditProfileSidebar(true);
+    };
+
+    const closeEditProfileSidebar = () => {
+        setShowEditProfileSidebar(false);
+    };
+
+    const handleLogout = () => {
+        dispatch(supplierLogout(navigate));
+        // Call API to fetch data again
+        dispatch(getSupplier());
+    };
+
     if (loading) {
         return <div style={{
             display: 'flex',
@@ -41,6 +59,7 @@ function ViewDetails() {
             <PulseLoader color="#A6A9AC" />
         </div>
     }
+
 
     return (
         <div>
@@ -55,7 +74,10 @@ function ViewDetails() {
                             <div className="top-right-cont">
                                 {isSupplierAuthenticated ? (
                                     <div className="cd-edit-btn">
-                                        <button>Edit <FaRegEdit /></button>
+                                        <button onClick={openEditProfileSidebar}>Edit <FaRegEdit /></button>
+                                        {showEditProfileSidebar && (
+                                            <SupplierEditSidebar SupplierEditProfileSidebar={closeEditProfileSidebar} />
+                                        )}
                                     </div>
                                 ) : (
                                     <div className="cd-send-enq-btn">
@@ -91,7 +113,7 @@ function ViewDetails() {
 
                         {isSupplierAuthenticated && (
                             <div className="cd-logout-btn">
-                                <button type='submit'>Logout</button>
+                                <button type='submit' onClick={handleLogout}>Logout</button>
                             </div>
                         )}
                     </div>

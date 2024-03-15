@@ -11,6 +11,8 @@ import {
   GET_SUPPLIER_REQUEST,
   GET_SUPPLIER_SUCCESS,
   GET_SUPPLIER_FAILURE,
+  SUPPLIER_LOGOUT_SUCCESS,
+  SUPPLIER_LOGOUT_FAIL,
 } from "../constants/supplierAuthConstant.js";
 
 // Supplier Registration
@@ -81,18 +83,18 @@ export const getSupplier = () => {
       // if (!token) {
       //   throw new Error('Authentication token not found');
       // }
-      
+
       const response = await axiosRequest.get('/contractor/profile', {
         headers: {
           Authorization: `Bearer ${token}`, // Include the token in the request headers
         },
       });
-      
+
       dispatch({
         type: GET_SUPPLIER_SUCCESS,
         payload: response.data
       });
-      
+
       return response.data;
     } catch (error) {
       dispatch({
@@ -105,6 +107,39 @@ export const getSupplier = () => {
       // throw error;
     }
   };
+};
+
+// logout supplier
+export const supplierLogout = (navigate) => async (dispatch) => {
+  try {
+    const token = Cookies.get('21sqft');
+
+    const config = {
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${token}`,
+      },
+    };
+
+    const data = await axiosRequest.get(
+      `/contractor/logout`,
+      config
+    );
+
+    if (data.success) {
+      Cookies.remove('21sqft');
+      dispatch({ type: SUPPLIER_LOGOUT_SUCCESS });
+    }
+    navigate('/');
+
+  } catch (error) {
+    dispatch({
+      type: SUPPLIER_LOGOUT_FAIL,
+      payload: error.response.data.message,
+      response: error.response,
+    });
+    throw error;
+  }
 };
 
 

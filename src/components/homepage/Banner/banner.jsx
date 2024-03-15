@@ -1,9 +1,17 @@
 import React from 'react'
 import './banner.css'
 import search1 from './banner images/Group 3.png'
+import { useNavigate } from 'react-router-dom'
 // import cement from './banner images/cement 1.png'
 
 const Banner = () => {
+
+    const navigate = useNavigate();
+
+    const handleConnect = () => {
+        navigate('/contact')
+    }
+
     return (
         <div>
             <div className='background-container'>
@@ -12,7 +20,7 @@ const Banner = () => {
                         <p className='banner-p-1'>Looking for Reliable</p>
                         <p className='banner-p-2'>Cement Suppliers?</p>
                         <p className='banner-p-3'>Build with Confidence Using Our High-Quality Cement Materials.</p>
-                        <button className='banner-bttn'>Connect Now</button>
+                        <button className='banner-bttn' onClick={handleConnect}>Connect Now</button>
                     </div>
                 </div>
                 <div className='lower-container'>
