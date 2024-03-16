@@ -530,8 +530,9 @@
 
     .search-box {
         position: absolute;
-        left: 10px;
-        top: 9.6%;
+        left: 8px;
+        top: 8%;
+        /* top: 9.6%; */
         z-index: 1;
         width: 97%;
         border-radius: 5px;
