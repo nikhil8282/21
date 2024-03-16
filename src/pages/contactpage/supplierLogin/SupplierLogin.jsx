@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { supplierLogin } from '../../../redux/actions/supplierAuthAction';
 import { toast } from 'react-toastify';
 import { PulseLoader } from 'react-spinners';
+import validator from 'validator';
 
 function SupplierLogin() {
 
@@ -28,6 +29,9 @@ function SupplierLogin() {
 
       if (!phoneNo || !password) {
         toast.error("All fields are required");
+      }
+      else if (!validator.isMobilePhone(phoneNo, 'en-IN')) {
+        toast.error('Please enter a valid phone number');
       }
       else if (password.length < 6) {
         toast.error("Password length must be at least 6 characters");

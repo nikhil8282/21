@@ -7,6 +7,8 @@ import searchReducer from "./searchReducer";
 import userReducer from "./userReducer";
 import supplierAuthReducer from "./supplierAuthReducer";
 import contractorReducer from "./contractorReducer";
+import sendEnquiryReducer from "./sendEnquiryReducer";
+import subscribeReducer from "./subscribeReducer";
 
 const rootReducer = combineReducers({
   contactReducer,
@@ -17,6 +19,8 @@ const rootReducer = combineReducers({
   userReducer,
   supplierAuthReducer,
   contractorReducer,
+  sendEnquiryReducer,
+  subscribeReducer
 });
 
 export default rootReducer;

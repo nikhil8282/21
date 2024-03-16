@@ -7,17 +7,31 @@ import facebook from './footer images/Item → Link.png'
 import linkedin from './footer images/Item → Link (1).png'
 import instagram from './footer images/Item → Link (2).png'
 import { useState } from 'react';
-import axios from 'axios';
+import { useDispatch, useSelector } from 'react-redux'
+import { subscribeRequest } from '../../../redux/actions/subscribeAction'
+import validator from 'validator'
+import { toast } from 'react-toastify'
 
 const Footer = () => {
+
   const [email, setEmail] = useState()
 
-  const handleSubmit = (e) => {
-    e.preventDefault()
-    axios.post('http://localhost:8000/api/auth/subscribe', { email })
-      .then(result => console.log(result))
-      .catch(err => console.log(err))
-  }
+  const { loading } = useSelector(state => state.subscribeReducer);
+  const dispatch = useDispatch();
+
+  const handleSubscribe = (e) => {
+    e.preventDefault();
+    if (!email.match(/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/)) {
+      toast.error("Invalid Email")
+    }
+    else if (!validator.isEmail(email)) {
+      toast.error("Invalid Email");
+    } else {
+      dispatch(subscribeRequest(email));
+      setEmail('');
+    }
+  };
+
   return (
     <div>
       <div className='footer resp-footer'>
@@ -31,7 +45,6 @@ const Footer = () => {
             <img className='instagram' src={instagram} alt=""></img>
           </div>
         </div>
-        {/* <div className='footer-midd-flex'> */}
         <div id="two-div" className='footer-p-gap'>
           <p className='footer-p1'>Links</p>
           <p className='footer-p2'><Link className='footer-link-color' to="/category">Categories </Link></p>
@@ -42,22 +55,18 @@ const Footer = () => {
           <p className='footer-p1'>Others</p>
           <p className='footer-p2'><Link className='footer-link-color' to="/privacy-policy">Privacy Policy</Link></p>
           <p className='footer-p2'><Link className='footer-link-color' to="/terms-and-conditions">Terms and Conditions</Link></p>
-          {/* <p className='footer-p2'><Link to="/terms">Conditions</Link></p> */}
         </div>
         <div id="four-div" className='footer-p-gap'>
           <p className='footer-p1'>Newsletter</p>
           <p className='footer-p2'>Subscribe for our latest resources</p>
           <div className='footer-buttons'>
-            <form onSubmit={handleSubmit}>
-              {/* <button className='footer-mail'>Enter Email</button> */}
-              <input className='footer-mail' type='text' placeholder='Enter Email' onChange={(e) => setEmail(e.target.value)} />
-              <button className='footer-subscribe' type='submit'>Subscribe</button>
-              {/* <button className='footer-subscribe'>Subscribe</button> */}
+            <form>
+              <input className='footer-mail' type='text' placeholder='Enter email' value={email} onChange={(e) => setEmail(e.target.value)} />
+              <button className='footer-subscribe' type='submit' onClick={handleSubscribe}> {loading ? <div>Loading...</div> : 'Subscribe'}</button>
             </form>
           </div>
         </div>
       </div>
-      {/* </div> */}
     </div>
   )
 }

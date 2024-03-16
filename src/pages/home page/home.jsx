@@ -11,7 +11,7 @@ import Contactform from '../../components/homepage/contactform/contactform';
 
 const Home = () => {
     return (
-        <div>
+        <div className='home'>
             <Navbar />
             <Banner />
             <Explore />

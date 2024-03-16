@@ -13,6 +13,9 @@ import {
   GET_SUPPLIER_FAILURE,
   SUPPLIER_LOGOUT_SUCCESS,
   SUPPLIER_LOGOUT_FAIL,
+  SUPPLIER_EDIT_REQUEST,
+  SUPPLIER_EDIT_SUCCESS,
+  SUPPLIER_EDIT_FAILURE,
 } from "../constants/supplierAuthConstant.js";
 
 // Supplier Registration
@@ -141,6 +144,45 @@ export const supplierLogout = (navigate) => async (dispatch) => {
     throw error;
   }
 };
+
+// supplier edit profile
+export const supplierEditProfile = (supplierEditProfileData) => async (dispatch) => {
+  try {
+    dispatch({ type: SUPPLIER_EDIT_REQUEST });
+    const token = Cookies.get('21sqft');
+
+    const config = {
+      headers: {
+        "Content-Type": "multipart/form-data", // Change content type for FormData
+        Authorization: `Bearer ${token}`,
+      }
+    };
+
+    // Send PUT request to edit user profile
+    const { data } = await axiosRequest.put(
+      `/contractor/edit`,
+      supplierEditProfileData,
+      config,
+    );
+
+    dispatch({
+      type: SUPPLIER_EDIT_SUCCESS,
+      payload: data.user,
+    });
+    toast.success("Profile Updated Successfully");
+    // Handle navigation if needed
+
+    return data
+
+  } catch (error) {
+    dispatch({
+      type: SUPPLIER_EDIT_FAILURE,
+      payload: error.response?.data?.message || 'An error occurred',
+    });
+    toast.error(error.response?.data?.message || 'An error occurred');
+  }
+};
+
 
 
 // export const edit =

@@ -1,26 +1,23 @@
-import axios from 'axios';
 import { LIKE_REQUEST, LIKE_SUCCESS, LIKE_FAILURE } from '../constants/constant'
-// export const SET_CONTACT = 'SET_CONTACT';
+import axiosRequest from '../../services/ApiCall';
+import { toast } from 'react-toastify';
 
-export const setLike = (id) => {
+export const setLike = (businessId) => {
     return async (dispatch) => {
         dispatch({ type: LIKE_REQUEST });
         try {
-            const response = await axios.post('http://localhost:8000/api/auth/like', { id });
-            // dispatch({
-            // type: SET_LIKE,
-            // payload: response.data
-            // });
+            const response = await axiosRequest.put('/contractor/like', { businessId });
             dispatch({
                 type: LIKE_SUCCESS,
                 payload: response.data
             });
+            toast.success(response?.data?.message || 'Liked');
         } catch (error) {
             dispatch({
                 type: LIKE_FAILURE,
                 payload: error.message
             });
-            // console.error('Error:', error);
+            toast.error(error.response?.data?.message || 'Something Went Wrong');
         }
     };
 };

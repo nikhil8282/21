@@ -62,14 +62,19 @@ function ViewDetails() {
 
 
     return (
-        <div>
-            <Navbar />
+        <div className='cont-detail-cont'>
+            <div className="cd-header">
+                <Navbar />
+            </div>
             <div className="contractor-detail">
                 {contractor && (
                     <div className="cd-cont">
                         <div className="top-cd">
                             <div className="top-left-img-cont">
-                                <img src={contractor.image[0]} alt='' />
+                                {/* <img src={contractor.image[0]} alt='' /> */}
+                                {contractor && contractor.image && contractor.image[0] && (
+                                    <img src={contractor.image[0]} alt='' />
+                                )}
                             </div>
                             <div className="top-right-cont">
                                 {isSupplierAuthenticated ? (
@@ -89,7 +94,7 @@ function ViewDetails() {
                                 <div className="cd-details">
                                     <span className='t1'>Service-{contractor.service}</span>
                                     <span className='t2'><FaPhoneAlt />{contractor.phoneNo}</span>
-                                    <span className='t3'>$100 to $200</span>
+                                    <span className='t3'>Rs {contractor.price}</span>
                                 </div>
                                 <div className="cd-address">
                                     <span><CiLocationOn /> {contractor.city} {contractor.state}</span>
@@ -105,8 +110,11 @@ function ViewDetails() {
                         <div className="cd-images-cont">
                             <h3>Photos</h3>
                             <div className="cd-images">
-                                {contractor.image.slice(1).map((image, index) => (
+                                {/* {contractor.image.slice(1).map((image, index) => (
                                     <img key={index} src={image} alt='' />
+                                ))} */}
+                                {contractor && contractor.image && contractor.image.map((image, index) => (
+                                    <img key={index} src={`http://localhost:8080/uploaded/${image}`} alt='' />
                                 ))}
                             </div>
                         </div>
