@@ -88,3 +88,6 @@ export const SIGN_IN_USER = "signinuser";
 export const CHANGE_PASSWORD_USER = "CHANGE_PASSWORD_USER";
 
 export const LOGGED_USER = "LOGGED_USER";
+
+export const REACT_APP_GOOGLE_MAPS_KEY =
+  "AIzaSyD7xGVb5I8KIPK3w4xEeflybVXAHStp9q4";

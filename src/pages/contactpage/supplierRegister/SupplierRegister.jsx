@@ -1,18 +1,39 @@
-import React, { useRef, useState } from 'react'
-import './supplierregister.css'
-import { Link, useNavigate } from 'react-router-dom'
-import { supplierRegister } from '../../../redux/actions/supplierAuthAction';
-import { useDispatch, useSelector } from 'react-redux';
-import { toast } from 'react-toastify';
-import { PulseLoader } from 'react-spinners';
-import ServicesSidebar from '../../../containers/ServicesSidebar/ServicesSidebar';
-import validator from 'validator';
+import React, { useEffect, useRef, useState } from "react";
+import "./supplierregister.css";
+import { Link, useNavigate } from "react-router-dom";
+import { supplierRegister } from "../../../redux/actions/supplierAuthAction";
+import { useDispatch, useSelector } from "react-redux";
+import { toast } from "react-toastify";
+import { PulseLoader } from "react-spinners";
+import ServicesSidebar from "../../../containers/ServicesSidebar/ServicesSidebar";
+import validator from "validator";
+import { REACT_APP_GOOGLE_MAPS_KEY } from "../../../redux/constants/constant";
+
+let autoComplete;
+
+const loadScript = (url, callback) => {
+  let script = document.createElement("script");
+  script.type = "text/javascript";
+
+  if (script.readyState) {
+    script.onreadystatechange = function () {
+      if (script.readyState === "loaded" || script.readyState === "complete") {
+        script.onreadystatechange = null;
+        callback();
+      }
+    };
+  } else {
+    script.onload = () => callback();
+  }
+
+  script.src = url;
+  document.getElementsByTagName("head")[0].appendChild(script);
+};
 
 function SupplierRegister() {
-
-  const inputRef = useRef(null)
+  const inputRef = useRef(null);
   const formRef = useRef(null);
-  const [profilePic, setProfilePic] = useState('');
+  const [profilePic, setProfilePic] = useState("");
 
   // const handleimg = () => {
   //   inputRef.current.click()
@@ -25,8 +46,7 @@ function SupplierRegister() {
   //   setImage(event.target.value)
   // }
 
-
-  const [serviced, setServiced] = useState(false)
+  const [serviced, setServiced] = useState(false);
   // const service1 = () => setServiced(true)
   // const service0 = () => {
   //   setServiced(false)
@@ -34,33 +54,82 @@ function SupplierRegister() {
 
   // }
 
-  const [service, setService] = useState('');
-  const [name, setName] = useState('')
-  const [phoneNo, setPhoneNo] = useState('')
-  const [address, setAddress] = useState('')
-  const [city, setCity] = useState('')
-  const [state, setState] = useState('')
-  const [password, setPassword] = useState('')
-  const [price, setPrice] = useState('')
-  const [shortDescription, setShortDescription] = useState('')
-  const [image, setImage] = useState('')
-  const [base64Image, setBase64Image] = useState('');
+  const [service, setService] = useState("");
+  const [name, setName] = useState("");
+  const [phoneNo, setPhoneNo] = useState("");
+  const [address, setAddress] = useState("");
+  const [city, setCity] = useState("");
+  const [state, setState] = useState("");
+  const [password, setPassword] = useState("");
+  const [price, setPrice] = useState("");
+  const [shortDescription, setShortDescription] = useState("");
+  const [base64Image, setBase64Image] = useState("");
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const { loading } = useSelector((state) => state.supplierAuthReducer);
 
+  const [image, setImage] = useState("");
+
+  const [selectedLocation, setSelectedLocation] = useState({
+    lat: 28.7041,
+    lng: 77.1025,
+  });
+
+  const autoCompleteRef = useRef(null);
+  const handleScriptLoad = (updateQuery, autoCompleteRef) => {
+    autoComplete = new window.google.maps.places.Autocomplete(
+      autoCompleteRef.current,
+      {
+        // types: ["(cities)"],
+        componentRestrictions: { country: "IN" },
+      }
+    );
+
+    autoComplete.addListener("place_changed", () => {
+      handlePlaceSelect(updateQuery);
+    });
+  };
+
+  const handlePlaceSelect = async (updateQuery) => {
+    const addressObject = await autoComplete.getPlace();
+    const query = addressObject.formatted_address;
+    updateQuery(query);
+    console.log({ query });
+    const latLng = {
+      lat: addressObject?.geometry?.location?.lat(),
+      lng: addressObject?.geometry?.location?.lng(),
+    };
+    console.log({ latLng });
+    setSelectedLocation(latLng);
+  };
+  useEffect(() => {
+    loadScript(
+      `https://maps.googleapis.com/maps/api/js?key=${REACT_APP_GOOGLE_MAPS_KEY}&libraries=places`,
+      () => handleScriptLoad(setAddress, autoCompleteRef)
+    );
+  }, []);
+
+
   const handleRegister = async (e) => {
     try {
       e.preventDefault();
-      if (!name || !phoneNo || !service || !address || !city || !state || !password || !shortDescription || !price) {
+      if (
+        !name ||
+        !phoneNo ||
+        !service ||
+        !address ||
+        !city ||
+        !state ||
+        !password ||
+        !shortDescription ||
+        !price
+      ) {
         toast.error("All fields are required");
-      }
-      else if (!validator.isMobilePhone(phoneNo, 'en-IN')) {
-        toast.error('Please enter a valid phone number');
-      }
-      else if (password.length < 6) {
+      } else if (!validator.isMobilePhone(phoneNo, "en-IN")) {
+        toast.error("Please enter a valid phone number");
+      } else if (password.length < 6) {
         toast.error("Password length must be at least 6 characters");
       } else {
         const supplierRegisterData = {
@@ -77,23 +146,27 @@ function SupplierRegister() {
         };
 
         // Dispatch action to register supplier
-        const response = await dispatch(supplierRegister(supplierRegisterData, navigate));
+        const response = await dispatch(
+          supplierRegister(supplierRegisterData, navigate)
+        );
 
         // Clear input fields upon successful registration
         if (response && response.success) {
-          setName('');
-          setPhoneNo('');
-          setService('');
-          setAddress('');
-          setCity('');
-          setState('');
-          setPassword('');
-          setPrice('');
-          setShortDescription('');
+          setName("");
+          setPhoneNo("");
+          setService("");
+          setAddress("");
+          setCity("");
+          setState("");
+          setPassword("");
+          setPrice("");
+          setShortDescription("");
         }
       }
     } catch (error) {
-      console.error(`${error?.response?.data?.error || 'Something Went Wrong'}`);
+      console.error(
+        `${error?.response?.data?.error || "Something Went Wrong"}`
+      );
     }
   };
 
@@ -106,7 +179,6 @@ function SupplierRegister() {
     reader.readAsDataURL(file);
   };
 
-
   const convertToBase64 = (file) => {
     const reader = new FileReader();
     reader.readAsDataURL(file);
@@ -114,7 +186,7 @@ function SupplierRegister() {
       setBase64Image(reader.result);
     };
     reader.onerror = (error) => {
-      console.error('Error converting image to base64:', error);
+      console.error("Error converting image to base64:", error);
     };
   };
 
@@ -128,7 +200,6 @@ function SupplierRegister() {
   //   };
   //   reader.readAsDataURL(file);
   // };
-
 
   // const upload = async () => {
   //   try {
@@ -196,16 +267,19 @@ function SupplierRegister() {
   // };
 
   if (loading) {
-    return <div style={{
-      display: 'flex',
-      justifyContent: 'center',
-      alignItems: 'center',
-      height: '100vh'
-    }}>
-      <PulseLoader color="#FECC00" />
-    </div>
+    return (
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          height: "100vh",
+        }}
+      >
+        <PulseLoader color="#FECC00" />
+      </div>
+    );
   }
-
 
   const openServiceSidebar = () => {
     setServiced(true);
@@ -213,15 +287,15 @@ function SupplierRegister() {
 
   const closeServiceSidebar = () => {
     setServiced(false);
-    setService(sessionStorage.getItem('opts'));
+    setService(sessionStorage.getItem("opts"));
   };
 
   return (
-    <div className='supplier-register'>
-      <div className='left-sr'>
-        <img src='/image/div2.jpg' alt='img' />
+    <div className="supplier-register">
+      <div className="left-sr">
+        <img src="/image/div2.jpg" alt="img" />
       </div>
-      <div className='right-sr'>
+      <div className="right-sr">
         <div className="right-top-sr">
           <div>
             <Link to="/" className="ul-link">
@@ -231,11 +305,13 @@ function SupplierRegister() {
           <img src="/image/sq.jpg" alt="" />
         </div>
 
-        <form action=""
+        <form
+          action=""
           onSubmit={(e) => {
             handleRegister(e);
           }}
-          encType="multipart/form-data">
+          encType="multipart/form-data"
+        >
           <div className="supplier-register-form">
             <div className="sr-welcome-text">
               <h3>Welcome!</h3>
@@ -251,25 +327,44 @@ function SupplierRegister() {
             </div>
 
             <div className="Bhrl3">
-
               <div className="bhrl3">
                 <div className="sr-form-field">
-                  <label htmlFor="mmr" >Name
-                    <input id='mmr' type="text" value={name} onChange={(e) => setName(e.target.value)} placeholder='Enter you name of  your company' />
+                  <label htmlFor="mmr">
+                    Name
+                    <input
+                      id="mmr"
+                      type="text"
+                      value={name}
+                      onChange={(e) => setName(e.target.value)}
+                      placeholder="Enter you name of  your company"
+                    />
                   </label>
                 </div>
                 <div className="honeservl3">
                   <div className="sr-form-field">
-                    <label htmlFor="mmr1">Phone no
-                      <input id="mmr1" type="text" value={phoneNo} onChange={(e) => setPhoneNo(e.target.value)} placeholder='Enter your phone no' />
+                    <label htmlFor="mmr1">
+                      Phone no
+                      <input
+                        id="mmr1"
+                        type="text"
+                        value={phoneNo}
+                        onChange={(e) => setPhoneNo(e.target.value)}
+                        placeholder="Enter your phone no"
+                      />
                     </label>
 
-                    <label htmlFor='mmr2'>Service
-                      <input id='mmr2' type="text" onClick={openServiceSidebar} value={service} onChange={(e) => setService(e.target.value)} placeholder='Enter Service you provide' />
+                    <label htmlFor="mmr2">
+                      Service
+                      <input
+                        id="mmr2"
+                        type="text"
+                        onClick={openServiceSidebar}
+                        value={service}
+                        onChange={(e) => setService(e.target.value)}
+                        placeholder="Enter Service you provide"
+                      />
                     </label>
-
                   </div>
-
                 </div>
                 {serviced && <ServicesSidebar service0={closeServiceSidebar} />}
               </div>
@@ -281,59 +376,117 @@ function SupplierRegister() {
               </div> */}
               <div className="pniml3">
                 {profilePic ? (
-                  <img src={profilePic} className='wiii' alt='' />
+                  <img src={profilePic} className="wiii" alt="" />
                 ) : (
                   <label htmlFor="file-inputl3">
                     <div className="dragerl3"></div>
                     <p>+ Upload profile picture</p>
                   </label>
                 )}
-                <input type="file" onChange={changeimg} ref={inputRef} id="file-inputl3" style={{ display: 'none' }} className="upload-inputl3" accept="image/jpeg, image/png" />
+                <input
+                  type="file"
+                  onChange={changeimg}
+                  ref={inputRef}
+                  id="file-inputl3"
+                  style={{ display: "none" }}
+                  className="upload-inputl3"
+                  accept="image/jpeg, image/png"
+                />
               </div>
             </div>
 
             <div className="sr-form-field">
-              <label>Address
-                <input id='dlr1' type="text" placeholder='' value={address} onChange={(e) => setAddress(e.target.value)} />
+              <label>
+                Address
+                <input
+                  id="dlr1"
+                  ref={autoCompleteRef}
+                  type="text"
+                  placeholder=""
+                  value={address}
+                  onChange={(e) => setAddress(e.target.value)}
+                />
               </label>
             </div>
 
             <div className="sr-form-field">
-              <label>Short Description
-                <input id='dlr1' type="text" placeholder='' value={shortDescription} onChange={(e) => setShortDescription(e.target.value)} />
+              <label>
+                Short Description
+                <input
+                  id="dlr1"
+                  type="text"
+                  placeholder=""
+                  value={shortDescription}
+                  onChange={(e) => setShortDescription(e.target.value)}
+                />
               </label>
             </div>
 
             <div className="sr-form-field">
-              <label>Price
-                <input id='dlr1' type="text" placeholder='' value={price} onChange={(e) => setPrice(e.target.value)} />
+              <label>
+                Price
+                <input
+                  id="dlr1"
+                  type="text"
+                  placeholder=""
+                  value={price}
+                  onChange={(e) => setPrice(e.target.value)}
+                />
               </label>
             </div>
 
             <div className="sr-form-field">
-              <label>City
-                <input id='dlr2' type="text" placeholder='' value={city} onChange={(e) => setCity(e.target.value)} />
+              <label>
+                City
+                <input
+                  id="dlr2"
+                  type="text"
+                  placeholder=""
+                  value={city}
+                  onChange={(e) => setCity(e.target.value)}
+                />
               </label>
-              <label>State
-                <input id='dlr3' type="text" placeholder='' value={state} onChange={(e) => setState(e.target.value)} />
+              <label>
+                State
+                <input
+                  id="dlr3"
+                  type="text"
+                  placeholder=""
+                  value={state}
+                  onChange={(e) => setState(e.target.value)}
+                />
               </label>
             </div>
 
             <div className="sr-form-field">
-              <label htmlFor='cce'>Password
-                <input id='cce' type="password" placeholder='Enter your password' value={password} onChange={(e) => setPassword(e.target.value)} />
+              <label htmlFor="cce">
+                Password
+                <input
+                  id="cce"
+                  type="password"
+                  placeholder="Enter your password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                />
               </label>
             </div>
           </div>
           <div className="bottom-sr">
-            <button type='submit' onClick={handleRegister}>Registration</button>
-            <div> Already have an account
-              <Link to='/supplier-login' className='sr-link'>Login</Link></div>
+            <button type="submit" onClick={handleRegister}>
+              Registration
+            </button>
+            <div>
+              {" "}
+              Already have an account
+              <Link to="/supplier-login" className="sr-link">
+                Login
+              </Link>
+            </div>
           </div>
         </form>
       </div>
     </div>
-  )
+  );
 }
 
-export default SupplierRegister
+export default SupplierRegister;
